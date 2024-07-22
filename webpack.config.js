@@ -9,7 +9,7 @@ module.exports = {
         path: path.resolve(__dirname, 'public'),
         filename: 'main.min.js'
     },
-    mode: 'development',
+    mode: 'production',
     module: {
         rules: [{
             test: /\.css$/,
