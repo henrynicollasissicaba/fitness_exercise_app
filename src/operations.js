@@ -43,7 +43,6 @@ export const showSearchedExercises = async () => {
 
     if (checkInput) {
       const translatedInput = translateInput(lowerInput);
-      console.log(translatedInput)
       const exercisesData = await fetchData(
         `https://exercisedb.p.rapidapi.com/exercises?limit=${exerciseLimit}&offset=0`,
         translatedInput
