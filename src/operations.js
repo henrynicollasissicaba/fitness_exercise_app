@@ -35,7 +35,6 @@ const viewExerciseCard = (exercises) => {
 };
 
 export const showSearchedExercises = async () => {
-  const exerciseLimit = process.env.EXERCISE_LIMIT;
 
   if (searchInput.value.length > 0) {
     const lowerInput = sanitize(searchInput.value.toLowerCase());
@@ -44,7 +43,7 @@ export const showSearchedExercises = async () => {
     if (checkInput) {
       const translatedInput = translateInput(lowerInput);
       const exercisesData = await fetchData(
-        `https://exercisedb.p.rapidapi.com/exercises?limit=${exerciseLimit}&offset=0`,
+        'https://exercisedb.p.rapidapi.com/exercises?limit=1324&offset=0',
         translatedInput
       );
 
