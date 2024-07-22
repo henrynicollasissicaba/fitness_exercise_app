@@ -15,14 +15,11 @@ export const translateInput = (input) => {
         case "bracos superiores":
             output = "upper arms"
             break
-        case "antebraço":
+        case "antebraco":
             output = "lower arms"
             break
         case "ombros":
             output = "shoulders"
-            break
-        case "pescoço":
-            output = "neck"
             break
         case "panturrilha":
             output = "lower legs"
@@ -135,7 +132,7 @@ export const translateInput = (input) => {
 
 export const exercisesDb = [
     'costas', 'peito', 'cardio', 'braços superiores', 'antebraço',
-    'ombros', 'pescoço', 'panturrilha', 'coxas', 'cintura',
+    'ombros', 'panturrilha', 'coxas', 'cintura',
     'abdutores', 'adutores', 'abdominais', 'tríceps', 'bíceps',
     'deltoides', 'quadríceps', 'glúteos', 'isquiotibiais', 'peitoral',
     'dorsais', 'superior das costas', 'trapézios', 'músculo serrátil anterior', 'sistema cardiovascular',

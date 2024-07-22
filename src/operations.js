@@ -38,11 +38,15 @@ export const showSearchedExercises = async () => {
   const exerciseLimit = process.env.EXERCISE_LIMIT;
 
   if (searchInput.value.length > 0) {
+    console.log(searchInput.value)
     const lowerInput = sanitize(searchInput.value.toLowerCase());
+    console.log(lowerInput)
     const checkInput = exercisesDb.includes(lowerInput);
+    console.log(checkInput)
 
     if (checkInput) {
       const translatedInput = translateInput(lowerInput);
+      console.log(translatedInput)
       const exercisesData = await fetchData(
         `https://exercisedb.p.rapidapi.com/exercises?limit=${exerciseLimit}&offset=0`,
         translatedInput
