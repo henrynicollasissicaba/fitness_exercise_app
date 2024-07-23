@@ -1,11 +1,9 @@
 import { showErrorMessage } from "./alert.js";
 
-const ApiKey = process.env.EXERCISE_API_KEY
-
 const options = {
 	method: 'GET',
 	headers: {
-		'x-rapidapi-key': ApiKey,
+		'x-rapidapi-key': '31329064bfmshed2b61ee3d11922p1e5ec2jsnfc9265af1f8c',
 		'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
 	}
 };
