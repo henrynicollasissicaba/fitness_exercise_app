@@ -1,7 +1,6 @@
-const exercisesCards = document.querySelector('.exercise-cards.swiper-wrapper')
-
 export const createExerciseCard = (exercises) => {
-    isHasSearchedExercises()
+    const exercisesCards = document.querySelector('.exercise-cards.swiper-wrapper')
+    exercisesCards.innerHTML = ''
 
     const sliderWrapper = document.querySelector('.slider-wrapper-exercises')
 
@@ -28,10 +27,37 @@ export const createViewExerciseCard = (exercise) => {
     })
 
     gif.src = `${exercise.gifUrl}`
-    bodyPartHeading.textContent = `${exercise.bodyPart}`
-    equipmentHeading.textContent = `${exercise.equipment}`
-    targetHeading.textContent = `${exercise.target}`
+    bodyPartHeading.textContent = `Parte do corpo: ${exercise.bodyPart}`
+    equipmentHeading.textContent = `Equipamento: ${exercise.equipment}`
+    targetHeading.textContent = `Músculo: ${exercise.target}`
     exerciseNameHeading.textContent = `${exercise.name}`
+
+    const muscleParagraph = document.createElement('p')
+    muscleParagraph.className = 'muscle'
+    const instructionParagraph = document.createElement('p')
+    instructionParagraph.className = 'instruction'
+}
+
+export const showMoreExerciseInfo = (exercise) => {
+    const secondaryMuscles = document.querySelector('.muscles')
+    const exerciseInstructions = document.querySelector('.instructions')
+
+    secondaryMuscles.innerHTML = ''
+    exerciseInstructions.innerHTML = ''
+
+    exercise.secondaryMuscles.forEach((muscle) => {
+        const muscleElement = document.createElement('p')
+        muscleElement.textContent = `- ${muscle}`
+        muscleElement.classList.add('muscle')
+        secondaryMuscles.append(muscleElement)
+    })
+
+    exercise.instructions.forEach((instruction, id) => {
+        const instructionElement = document.createElement('p')
+        instructionElement.textContent = `${id + 1}: ${instruction}`
+        instructionElement.classList.add('instruction')
+        exerciseInstructions.append(instructionElement)
+    })
 }
 
 const exerciseCard = (exercise) => {
@@ -62,12 +88,6 @@ const exerciseCard = (exercise) => {
     exerciseCardDiv.append(gif, targetsDiv, exerciseName)
     
     return exerciseCardDiv
-}
-
-const isHasSearchedExercises = () => {
-    if(exercisesCards.children.length > 0){
-        exercisesCards.innerHTML = ''
-    } 
 }
 
 // cards de exercicios em html

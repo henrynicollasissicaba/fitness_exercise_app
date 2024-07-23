@@ -88,6 +88,8 @@ body {
   background-color: var(--clr-primary-50);
 }
 
+/* HEADER STYLE SECTION STARTS */
+
 header {
   display: flex;
   justify-content: space-around;
@@ -116,11 +118,17 @@ header nav ul li a:hover {
   color: white;
 }
 
+/* HEADER STYLE SECTION ENDS */
+
+/* MAIN STYLE SECTION STARTS */
+
 main {
   width: min(70rem, 100% - 0.5rem * 2);
   padding: 0.75rem;
   margin-inline: auto;
 }
+
+/* HERO CONTENT STYLE SECTION STARTS */
 
 .hero-content {
   display: flex;
@@ -176,6 +184,10 @@ main {
 .hero-content img {
   width: 30rem;
 }
+
+/* HERO CONTENT STYLE SECTION ENDS */
+
+/* EXERCISE CATEGORY STYLE SECTION STARTS */
 
 .exercise-category{
   position: relative;
@@ -250,6 +262,10 @@ main {
   margin-right: 10px;
 }
 
+/* EXERCISE CATEGORY STYLE SECTION ENDS */
+
+/* SEARCH EXERCISE STYLE SECTION STARTS */
+
 .search-exercise{
   margin-top: 8rem;
   display: flex;
@@ -283,6 +299,10 @@ main {
   background-color: var(--clr-primary-900);
   color: var(--clr-primary-50);
 }
+
+/* SEARCH EXERCISE STYLE SECTION ENDS */
+
+/* SLIDER AND EXERCISE CARD STYLE SECTION STARTS */
 
 .slider-wrapper-categories{
   margin: 5rem 0 5rem 0;
@@ -418,6 +438,10 @@ main {
   margin-top: 1.25rem;
 }
 
+/* SLIDER AND EXERCISE CARD STYLE SECTION ENDS */
+
+/* POPUP EXERCISE CARD STYLE SECTION STARTS */
+
 .popup-box{
   position: fixed;
   width: 100%;
@@ -475,7 +499,7 @@ main {
   font-weight: 700;
   color: var(--clr-primary-950);
   font-size: 1.125rem;
-  margin-top: 2rem;
+  margin-bottom: 2.5rem;
   text-transform: capitalize;
 }
 
@@ -501,6 +525,61 @@ main {
   border-radius: 50%;
 }
 
+.info-area:last-of-type{
+  margin-bottom: 1rem;
+}
+
+.exercise-instructions,
+.secondary-muscles{
+  display: block;
+  margin: auto;
+  margin: 1rem auto 1rem 0;
+  text-transform: capitalize;
+}
+
+.exercise-instructions .instructions-heading,
+.secondary-muscles .secondary-muscles-heading{
+  color: var(--clr-primary-950);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.muscle,
+.instruction{
+  color: var(--clr-primary-800);
+  font-size: 1rem;
+}
+
+.muscle{
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.instruction{
+  margin: .825rem 0;
+  font-weight: 500;
+}
+
+/* POPUP EXERCISE CARD STYLE SECTION ENDS */
+
+/* FOOTER STYLE SECTION STARTS */
+
+footer{
+  background-color: var(--clr-primary-100);
+  padding: 1rem;
+}
+
+.footer-paragraph{
+  text-align: center;
+  color: var(--clr-primary-800);
+  font-weight: 700;
+  font-size: .625rem;
+}
+
+/* FOOTER STYLE SECTION ENDS */
+
+/* MEDIA QUERIES STYLE SECTION STARTS */
+
 @media(max-width: 532px){
   .search-exercise{
     display: block;
@@ -521,3 +600,5 @@ main {
     margin-left: auto;
   }
 }
+
+/* MEDIA QUERIES STYLE SECTION ENDS */

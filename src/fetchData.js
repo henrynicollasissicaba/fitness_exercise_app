@@ -3,7 +3,7 @@ import { showErrorMessage } from "./alert.js";
 const options = {
 	method: 'GET',
 	headers: {
-		'x-rapidapi-key': '31329064bfmshed2b61ee3d11922p1e5ec2jsnfc9265af1f8c',
+		'x-rapidapi-key': '20dc5a31a4mshf87a0dfa5614fc8p1305a2jsn73b126e5f35f',
 		'x-rapidapi-host': 'exercisedb.p.rapidapi.com'
 	}
 };

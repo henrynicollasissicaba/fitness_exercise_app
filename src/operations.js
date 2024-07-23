@@ -1,6 +1,7 @@
 import {
   createExerciseCard,
   createViewExerciseCard,
+  showMoreExerciseInfo
 } from "./exerciseCardComponent.js";
 import { fetchData } from "./fetchData.js";
 import { sanitize } from "./sanitize.js";
@@ -30,6 +31,7 @@ const viewExerciseCard = (exercises) => {
   currentExercisesCards.forEach((card, id) => {
     card.addEventListener("click", () => {
       createViewExerciseCard(exercises[id]);
+      showMoreExerciseInfo(exercises[id])
     });
   });
 };
