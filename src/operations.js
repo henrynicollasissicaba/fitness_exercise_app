@@ -39,7 +39,7 @@ const viewExerciseCard = (exercises) => {
 export const showSearchedExercises = async () => {
 
   if (searchInput.value.length > 0) {
-    const lowerInput = sanitize(searchInput.value.toLowerCase());
+    const lowerInput = sanitize(searchInput.value.toLowerCase().trim());
     const checkInput = exercisesDb.includes(lowerInput);
 
     if (checkInput) {
