@@ -1,4 +1,4 @@
-<h3 align="center">Fitness Exercise APP - | Versão 2.0.3 Concluído :white_check_mark:</h3>
+<h3 align="center">Fitness Exercise APP | Versão 2.0.3 Concluído :white_check_mark:</h3>
 
 ---
 
