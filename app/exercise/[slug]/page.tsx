@@ -42,7 +42,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   return (
     <section className="w-full max-w-6xl mx-auto p-4">
       <Link 
-        href="/"
+        href="/#results"
         className="flex items-center gap-2 py-1 px-4 bg-blue-700 text-white rounded w-max 
         hover:bg-blue-500 transition-colors mb-5"
       >
