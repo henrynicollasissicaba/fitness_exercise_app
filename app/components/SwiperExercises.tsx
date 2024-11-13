@@ -54,12 +54,13 @@ const SwiperExercises = () => {
       {exercises.map((exercise, index) => (
         <SwiperSlide key={index}>
           <div 
-          className="flex flex-col gap-5 p-2 capitalize h-[33rem]
-          rounded mt-4 border-[1px] border-blue-950 relative shadow-lg">
+          className="flex flex-col gap-5 p-2 capitalize h-[33rem] 
+          mt-4 border-2 border-y-blue-700 rounded
+          border-x-slate-200 relative shadow-lg">
             <img
               src={exercise.gifUrl}
               alt="GIF do exercício"
-              className="w-full h-[20rem] border-[1px] border-blue-950"
+              className="w-full h-[20rem] border-2 rounded border-slate-200"
             />
             <div className="flex flex-col-reverse">
               <h3 className="font-bold text-lg text-black">

@@ -20,7 +20,7 @@ async function getExercise(id: string): Promise<Exercise> {
     headers: {
       "X-RapidAPI-Key": `${process.env.NEXT_PUBLIC_API_KEY}`,
       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-    }
+    },
   };
 
   try {
@@ -32,65 +32,60 @@ async function getExercise(id: string): Promise<Exercise> {
   }
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  try {
-    const exercise = await getExercise(params.slug);
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = (await params).slug;
+  const exercise = await getExercise(slug);
 
-    return (
-      <section className="w-full max-w-6xl mx-auto p-4">
-        <div className="flex flex-col gap-10">
-          <div className="capitalize flex sm:justify-between flex-wrap gap-8">
-            <img 
-            src={exercise.gifUrl} 
-            alt="GIF do exercício" 
+  return (
+    <section className="w-full max-w-6xl mx-auto p-4">
+      <div className="flex flex-col gap-10">
+        <div className="capitalize flex sm:justify-between flex-wrap gap-8">
+          <img
+            src={exercise.gifUrl}
+            alt="GIF do exercício"
             className="h-[25rem] sm:h-[28rem] md:h-[30rem] border-2 border-y-blue-700 rounded
-            border-x-slate-200"/>
-            <div className="capitalize w-full min-[435px]:w-auto">
-              <h1 className="font-bold text-xl mb-5">{exercise.name}</h1>
-              <div 
-                className="flex flex-col gap-4 shadow-lg p-3 border-[1px] border-slate-400 w-full"
-              >
-                <InfoExerciseField 
-                  imgUrl="/equipment.svg" 
-                  label="Equipment" 
-                  exerciseProp={exercise.equipment}
-                />
-                <InfoExerciseField 
-                  imgUrl="/body.svg" 
-                  label="Body Part" 
-                  exerciseProp={exercise.bodyPart}
-                />
-                <InfoExerciseField 
-                  imgUrl="/muscle.svg" 
-                  label="Target" 
-                  exerciseProp={exercise.target}
-                />
-              </div>
-            </div>
-            <div className="flex flex-col gap-4">
-              <h1 className="font-bold text-xl">Secondary Muscles</h1>
-              {exercise.secondaryMuscles.map((muscle, index) => (
-                <SecondaryMuscleInfo key={index} secondaryMuscle={muscle}/>
-              ))}
+            border-x-slate-200"
+          />
+          <div className="capitalize w-full min-[435px]:w-auto">
+            <h1 className="font-bold text-xl mb-5">{exercise.name}</h1>
+            <div className="flex flex-col gap-4 shadow-lg p-3 border-[1px] border-slate-400 w-full">
+              <InfoExerciseField
+                imgUrl="/equipment.svg"
+                label="Equipment"
+                exerciseProp={exercise.equipment}
+              />
+              <InfoExerciseField
+                imgUrl="/body.svg"
+                label="Body Part"
+                exerciseProp={exercise.bodyPart}
+              />
+              <InfoExerciseField
+                imgUrl="/muscle.svg"
+                label="Target"
+                exerciseProp={exercise.target}
+              />
             </div>
           </div>
-          <div className="shadow-lg p-3 border-[1px] border-slate-400 w-full">
-            <h1 className="font-bold text-xl mb-5">Instructions</h1>
-            <div className="flex flex-col gap-2 divide-y divide-slate-300">
-              {exercise.instructions.map((instruction, index) => (
-                <InstructionsInfo key={index} index={index + 1} instruction={instruction}/>
-              ))}
-            </div>
+          <div className="flex flex-col gap-4">
+            <h1 className="font-bold text-xl">Secondary Muscles</h1>
+            {exercise.secondaryMuscles.map((muscle, index) => (
+              <SecondaryMuscleInfo key={index} secondaryMuscle={muscle} />
+            ))}
           </div>
         </div>
-      </section>
-    );
-  } catch (error) {
-    return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <h1 className="text-2xl font-bold text-red-600">Error</h1>
-        <p className="mt-2">Failed to load exercise data. Please try again later.</p>
+        <div className="shadow-lg p-3 border-[1px] border-slate-400 w-full">
+          <h1 className="font-bold text-xl mb-5">Instructions</h1>
+          <div className="flex flex-col gap-2 divide-y divide-slate-300">
+            {exercise.instructions.map((instruction, index) => (
+              <InstructionsInfo
+                key={index}
+                index={index + 1}
+                instruction={instruction}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    );
-  }
+    </section>
+  );
 }
