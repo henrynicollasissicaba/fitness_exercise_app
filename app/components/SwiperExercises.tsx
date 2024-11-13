@@ -8,15 +8,9 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import Link from "next/link";
-import { useState } from "react";
 
 const SwiperExercises = () => {
   const { exercises } = useExercises();
-  const [isClicked, setIsClicked] = useState(false)
-
-  const handleClick = () => {
-    setIsClicked(true)
-  }
 
   return (
     <Swiper
@@ -77,9 +71,8 @@ const SwiperExercises = () => {
             </div>
             <Link 
               href={`/exercise/${exercise.id}`} 
-              className={`mt-auto text-center bg-blue-700 py-2 text-white rounded hover:bg-blue-500
-              transition-colors ${isClicked ? "pointer-events-none bg-blue-300" : ""}`}
-              onClick={handleClick}
+              className="mt-auto text-center bg-blue-700 py-2 text-white rounded hover:bg-blue-500
+              transition-colors"
             >
               Mais informações
             </Link>
