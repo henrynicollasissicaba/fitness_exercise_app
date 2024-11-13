@@ -1,10 +1,20 @@
-<h3 align="center">Fitness Exercise APP - Concluído :white_check_mark:</h3>
+<h3 align="center">Fitness Exercise APP - | Versão 2.0.3 Concluído :white_check_mark:</h3>
+
+---
+
+# Atualizações do Projeto: Fitness Exercise APP
+## Versão 2.0: Migração para NextJS, ReactJS e Tailwind CSS
+
+- O projeto foi migrado do HTML/CSS/JS puro para o framework NextJS, que fornece recursos poderosos para construção de aplicações React.
+- A estilização foi atualizada para usar o Tailwind CSS, uma biblioteca de classes utilitárias que facilita e agiliza o desenvolvimento de interfaces.
+- Algumas funcionalidades foram reescritas utilizando React e seus recursos, como componentes, hooks e gerenciamento de estado.
+- O projeto agora é mais rápido, escalável e fácil de manter.
 
 ---
 
 ## Sobre o projeto :computer:
 
-Uma aplicação web desenvolvida com HTML, CSS e JavaScript puros, onde você tem acesso por mais de 1300 exercícios de diversos tipos, 
+Uma aplicação web desenvolvida com NextJS, ReactJS e Tailwind CSS, onde você tem acesso por mais de 1300 exercícios de diversos tipos, 
 fazendo uma busca por um banco de dados de exercícios pela Rapid API, utilizando o ExerciseDB.
 Há diversos tipos de buscas que podem ser realizadas, porém as que estão disponíveis no APP são:
 
@@ -16,29 +26,30 @@ Sendo que, para cada exercício, há um GIF simulando a execução de determinad
 
 ---
 
-## Pacotes utilizados no projeto :bulb:
+## Frameworks / Libraries utilizados no projeto :bulb:
 
-- [x] Sweetalert2, para popups interativos e atraentes;
-- [x] DOMPurify, um "sanitizador" de XSS, contribuindo para maior segurança da aplicação;
-- [x] Swiper, para criar slides dinâmicos e responsivos.  
+- [x] NextJS
+- [x] ReactJS
+- [x] Tailwind CSS
+- [x] SwiperJS
 
 ---
 
 ## Funcionalidades :wrench:
 
-- [x] Pesquisar por exercícios por parte do corpo
-- [x] Pesquisar por exercícios por equipamentos
-- [x] Pesquisar por exercícios por músculo
-- [x] Cada exercício pode ser clicado e abrirá um popup mostrando o exercício isoladamente
+- [x] Apenas clique em um item de uma determinada categoria e a pesquisa será feita de acordo do item o qual você clicou
+- [x] Cada exercício terá um link para acessar uma página que exibirá todas as informações do exercício 
 
 ---
 
 ## Tecnologias usadas :star:
 
 <div display="flex" gap="16px">
-  <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-  <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
+  <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" />
+  <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
   <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+  <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" />
+  <img width="50px" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
 </div>
 
 ---
