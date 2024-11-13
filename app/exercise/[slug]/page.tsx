@@ -1,6 +1,7 @@
 import InfoExerciseField from "@/app/components/InfoExerciseField";
 import InstructionsInfo from "@/app/components/InstructionsInfo";
 import SecondaryMuscleInfo from "@/app/components/SecondaryMuscleInfo";
+import Link from "next/link";
 
 interface Exercise {
   id: string;
@@ -40,6 +41,14 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   return (
     <section className="w-full max-w-6xl mx-auto p-4">
+      <Link 
+        href="/"
+        className="flex items-center gap-2 py-1 px-4 bg-blue-700 text-white rounded w-max 
+        hover:bg-blue-500 transition-colors mb-5"
+      >
+        <img src="/arrow-back.svg" alt="arrow back" className="w-4 h-4" />
+        Voltar para a página inicial
+      </Link>
       <div className="flex flex-col gap-10">
         <div className="capitalize flex sm:justify-between flex-wrap gap-8">
           <img
