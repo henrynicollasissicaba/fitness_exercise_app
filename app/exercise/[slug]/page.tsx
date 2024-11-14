@@ -15,8 +15,6 @@ interface Exercise {
 }
 
 async function getExercise(id: string): Promise<Exercise> {
-  'use client'
-
   const url = `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`;
   const options = {
     method: "GET",
