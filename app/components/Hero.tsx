@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import HeroImg from "/public/hero-img.svg";
 import Button from "./Button";
 
 const Hero = () => {
@@ -29,7 +28,7 @@ const Hero = () => {
             Explorar Exercícios
           </Button>
         </div>
-        <Image src={HeroImg} alt="hero image" />
+        <Image src="/hero-img.svg" width={600} height={ 600} alt="hero image" />
       </div>
     </section>
   );
