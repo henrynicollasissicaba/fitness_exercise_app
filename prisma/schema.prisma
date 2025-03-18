@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id          String     @id
+  username    String     @unique
+  fullName    String     @db.VarChar(255)
+  role        String     @default("Aluno")
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  ownedLists  List[]     @relation("OwnedLists") // Listas criadas pelo usuário acima de Aluno
+  sharedLists UserList[] // Relação muitos-para-muitos com List
+}
+
+model List {
+  id         Int        @id @default(autoincrement())
+  title      String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  ownerId    String // Criador da lista
+  owner      User       @relation("OwnedLists", fields: [ownerId], references: [id])
+  exercises  Exercise[] // Relação um-para-muitos com Exercise
+  sharedWith UserList[] // Relação muitos-para-muitos com User
+}
+
+// Tabela de junção para a relação muitos-para-muitos entre User e List
+model UserList {
+  id       Int      @id @default(autoincrement())
+  userId   String
+  listId   Int
+  sharedAt DateTime @default(now())
+  user     User     @relation(fields: [userId], references: [id])
+  list     List     @relation(fields: [listId], references: [id])
+
+  @@unique([userId, listId]) // Garante que um usuário não receba a mesma lista duas vezes
+}
+
+model Exercise {
+  id        Int      @id @default(autoincrement())
+  name      String
+  note      String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  listId    Int // Chave estrangeira para List
+  list      List     @relation(fields: [listId], references: [id])
+}
