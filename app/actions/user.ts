@@ -1,13 +1,15 @@
 "use server"
 
-import { auth, clerkClient } from "@clerk/nextjs/server"
-import { prisma } from "../database/prisma-client"
+import { clerkClient } from "@clerk/nextjs/server"
+import { createUser, deleteUser, getUsers } from "../models/User"
+import { revalidatePath } from "next/cache"
 
-export const createUser = async (fullName: string, username: string, password: string, role: string) => {
+export const createUserAction = async (fullName: string, username: string, password: string, role: string) => {
     const client = await clerkClient()
 
     try {
-        await client.users.createUser({
+        // criate user in clerk
+        const user = await client.users.createUser({
             username,
             password,
             publicMetadata: {
@@ -15,18 +17,30 @@ export const createUser = async (fullName: string, username: string, password: s
             }
         })
 
-        const { userId } = await auth()
-        if(!userId) return
+        // getting user id after creation
+        const userId = user.id
 
-        await prisma.user.create({
-            data: {
-                id: userId,
-                fullName,
-                username
-            }
-        })
+        // create user in database
+        await createUser(userId, fullName, username, role)
         
     } catch (error) {
         console.log(error)
     }
+}
+
+export const deleteUserAction = async (userId: string) => {
+    const client = await clerkClient()
+
+    // delete user in clerk
+    await client.users.deleteUser(userId)
+
+    // delete user in database
+    await deleteUser(userId)
+
+    revalidatePath("/admin")
+}
+
+export const getUsersAction = async (role: string) => {
+    const users = await getUsers(role)
+    return users
 }

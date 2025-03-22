@@ -1,7 +1,7 @@
 import Heading from "@/app/components/Heading";
 import Container from "@/app/components/tags/Container";
 import Section from "@/app/components/tags/Section";
-import CreatePupilForm from "../_components/CreatePupilForm";
+import CreatePupilForm from "../../_components/CreatePupilForm";
 import { checkRole } from "@/app/utils/roles";
 import { redirect } from "next/navigation";
 

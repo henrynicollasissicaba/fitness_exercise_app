@@ -1,13 +1,13 @@
 "use client"
 
-import { createUser } from "@/app/actions/user";
+import { createUserAction } from "@/app/actions/user";
 import FormGroup from "@/app/components/tags/FormGroup";
 import { Button } from "@/app/components/ui/Button";
 import { Input } from "@/app/components/ui/Input";
 import { useState } from "react";
 import { toast } from "sonner";
 
-export default function CreatePupilForm(){
+export default function CreateTeacherForm(){
     const [isLoading, setIsLoading] = useState(false)
     const [fullName, setFullName] = useState("")
     const [username, setUsername] = useState("")
@@ -19,9 +19,9 @@ export default function CreatePupilForm(){
         try {
             setIsLoading(true)
 
-            toast.promise(createUser(fullName, username, password, "pupil"), {
-                loading: "Cadastrando aluno...",
-                success: "Aluno cadastrado com sucesso!"
+            toast.promise(createUserAction(fullName, username, password, "teacher"), {
+                loading: "Cadastrando professor...",
+                success: "Professor cadastrado com sucesso!"
             })
 
         } catch (error) {
@@ -76,7 +76,7 @@ export default function CreatePupilForm(){
                 className="mt-5"
                 disabled={isLoading}
             >
-                Cadastrar aluno
+                Cadastrar professor
             </Button>
         </form>
     )

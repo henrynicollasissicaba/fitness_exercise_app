@@ -1,5 +1,5 @@
 import Heading from "@/app/components/Heading";
-import CreateTeacherForm from "../_components/CreateTeacherForm";
+import CreateTeacherForm from "../../_components/CreateTeacherForm";
 import Section from "@/app/components/tags/Section";
 import Container from "@/app/components/tags/Container";
 import { checkRole } from "@/app/utils/roles";
