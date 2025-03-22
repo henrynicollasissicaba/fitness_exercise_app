@@ -14,46 +14,60 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+// Pode ter vários treinos através da tabela intermediária
 model User {
-  id          String     @id
-  username    String     @unique
-  fullName    String     @db.VarChar(255)
-  role        String     @default("Aluno")
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
-  ownedLists  List[]     @relation("OwnedLists") // Listas criadas pelo usuário acima de Aluno
-  sharedLists UserList[] // Relação muitos-para-muitos com List
-}
+  id String @id
+  fullName String @db.VarChar(255)
+  username String @unique @db.VarChar(100)
 
-model List {
-  id         Int        @id @default(autoincrement())
-  title      String
-  createdAt  DateTime   @default(now())
-  updatedAt  DateTime   @updatedAt
-  ownerId    String // Criador da lista
-  owner      User       @relation("OwnedLists", fields: [ownerId], references: [id])
-  exercises  Exercise[] // Relação um-para-muitos com Exercise
-  sharedWith UserList[] // Relação muitos-para-muitos com User
-}
-
-// Tabela de junção para a relação muitos-para-muitos entre User e List
-model UserList {
-  id       Int      @id @default(autoincrement())
-  userId   String
-  listId   Int
-  sharedAt DateTime @default(now())
-  user     User     @relation(fields: [userId], references: [id])
-  list     List     @relation(fields: [listId], references: [id])
-
-  @@unique([userId, listId]) // Garante que um usuário não receba a mesma lista duas vezes
-}
-
-model Exercise {
-  id        Int      @id @default(autoincrement())
-  name      String
-  note      String?  @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  listId    Int // Chave estrangeira para List
-  list      List     @relation(fields: [listId], references: [id])
+
+  workouts UserWorkout[]
+}
+
+// Pode pertencer a vários usuários e conter vários exercícios.
+model Workout {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(255)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users UserWorkout[]
+  exercises WorkoutExercise[]
+}
+
+// Pode estar em vários treinos.
+model Exercise {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(255)
+  sets_X_reps String @db.VarChar(25)
+  notes String? @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  workouts WorkoutExercise[]
+}
+
+// Faz a relação entre usuários e treinos, permitindo que um treino seja compartilhado entre vários usuários.
+model UserWorkout {
+  userId String
+  workoutId Int
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workout Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+
+  @@id([userId, workoutId])
+}
+
+// Armazena os exercícios de um treino
+model WorkoutExercise {
+  id Int @id @default(autoincrement())
+  workoutId Int
+  exerciseId Int
+
+  workout Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  exercise Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
 }

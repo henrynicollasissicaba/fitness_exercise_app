@@ -1,3 +1,5 @@
+import { Home, Search, UserRoundPlus, CirclePlus, Check } from "lucide-react"
+
 interface NavItem {
     id: number
     label: string
@@ -7,6 +9,7 @@ interface NavItem {
 const navItems: NavItem[] = [
     { id: 1, label: "Home", link: "#home" },
     { id: 2, label: "Exercícios", link: "#exercises" },
+    { id: 3, label: "Entrar", link: "/login" }
 ]
 
 const muscles: string[] = [
@@ -26,6 +29,76 @@ const bodyParts: string[] = [
     "Cintura", "Panturrilha", "Coxas"
 ]
 
+interface SidebarMenuItem {
+    title: string
+    url: string
+    icon: React.ComponentType
+}
 
-export { navItems, bodyParts, equipments, muscles }
+const adminItems: SidebarMenuItem[] = [
+    {
+        title: "Painel do Administrador",
+        url: "/admin",
+        icon: Home,
+    },
+    {
+        title: "Cadastrar professor",
+        url: "/admin/create-teacher",
+        icon: UserRoundPlus,
+    },
+    {
+        title: "Cadastrar aluno",
+        url: "/admin/create-pupil",
+        icon: UserRoundPlus,
+    },
+    {
+        title: "Ir para a página principal",
+        url: "/",
+        icon: Search,
+    }
+]
+
+const teacherItems: SidebarMenuItem[] = [
+    {
+        title: "Painel do professor",
+        url: "/teacher",
+        icon: Home
+    },
+    {
+        title: "Cadastrar aluno",
+        url: "/teacher/create-pupil",
+        icon: UserRoundPlus
+    },
+    {
+        title: "Cadastrar treino",
+        url: "/teacher/create-workout",
+        icon: CirclePlus
+    },
+    {
+        title: "Treinos criados",
+        url: "/teacher/created-workouts",
+        icon: Check
+    },
+    {
+        title: "Ir para a página principal",
+        url: "/",
+        icon: Search
+    },
+]
+
+const pupilItems: SidebarMenuItem[] = [
+    {
+        title: "Meu treino",
+        url: "/pupil",
+        icon: Home
+    },
+    {
+        title: "Ir para a página principal",
+        url: "/",
+        icon: Search
+    },
+]
+
+
+export { navItems, bodyParts, equipments, muscles, adminItems, teacherItems, pupilItems }
 
