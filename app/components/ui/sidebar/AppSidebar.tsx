@@ -11,6 +11,8 @@ import {
 import Link from "next/link"
 import { checkRole } from "@/app/utils/roles"
 import { adminItems, pupilItems, teacherItems } from "@/app/data"
+import { SignOutButton } from "@clerk/nextjs"
+import { LogOut } from "lucide-react"
 
 export async function AppSidebar() {
     const isAdmin = await checkRole('admin')
@@ -70,6 +72,16 @@ export async function AppSidebar() {
                     ))}
                 </div>
               )}
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild className="cursor-pointer mt-10">
+                  <SignOutButton>
+                    <button>
+                      <LogOut />
+                      <span>Sair</span>
+                    </button>
+                  </SignOutButton>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

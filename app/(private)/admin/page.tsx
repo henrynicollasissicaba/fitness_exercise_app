@@ -1,5 +1,6 @@
+import Container from "@/app/components/tags/Container"
+import Section from "@/app/components/tags/Section"
 import { checkRole } from "@/app/utils/roles"
-import { SignOutButton } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
 
 export default async function AdminPage(){
@@ -9,13 +10,12 @@ export default async function AdminPage(){
     }
 
     return(
-        <section>
-            <div>
-                <h1>Admin page</h1>
-                <SignOutButton>
-                    sair
-                </SignOutButton>
-            </div>
-        </section>
+        <Section>
+            <Container>
+                <div>
+
+                </div>
+            </Container>
+        </Section>
     )
 }
