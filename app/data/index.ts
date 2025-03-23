@@ -70,7 +70,7 @@ const teacherItems: SidebarMenuItem[] = [
         icon: UserRoundPlus
     },
     {
-        title: "Cadastrar treino",
+        title: "Criar treino",
         url: "/teacher/create-workout",
         icon: CirclePlus
     },
@@ -97,10 +97,6 @@ const pupilItems: SidebarMenuItem[] = [
         url: "/",
         icon: Search
     },
-]
-
-const notes: string[] = [
-    ""
 ]
 
 export { navItems, bodyParts, equipments, muscles, adminItems, teacherItems, pupilItems }

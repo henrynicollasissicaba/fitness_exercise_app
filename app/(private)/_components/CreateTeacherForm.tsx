@@ -41,7 +41,6 @@ export default function CreateTeacherForm(){
                 <Input 
                     type="text"
                     placeholder="Digite o nome completo"
-                    autoComplete="off"
                     name="fullname"
                     id="fullname"
                     onChange={(e) => setFullName(e.target.value)}
@@ -53,7 +52,6 @@ export default function CreateTeacherForm(){
                 <Input 
                     type="text"
                     placeholder="Digite o nome de usuário"
-                    autoComplete="off"
                     name="username"
                     id="username"
                     onChange={(e) => setUsername(e.target.value)}

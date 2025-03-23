@@ -12,7 +12,7 @@ export default async function CreatePupilPage(){
     }
 
     return(
-        <Section className="flex justify-center flex-wrap gap-6">
+        <Section className="flex justify-center flex-wrap gap-6 pb-10">
             <Container className="max-w-3xl w-full">
                 <div className="flex flex-col gap-4">
                     <Heading>Observações</Heading>

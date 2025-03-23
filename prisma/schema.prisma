@@ -27,7 +27,6 @@ model User {
   workouts UserWorkout[]
 }
 
-// Pode pertencer a vários usuários e conter vários exercícios.
 model Workout {
   id Int @id @default(autoincrement())
   name String @db.VarChar(255)
@@ -36,10 +35,9 @@ model Workout {
   updatedAt DateTime @updatedAt
 
   users UserWorkout[]
-  exercises WorkoutExercise[]
+  exercises Exercise[]
 }
 
-// Pode estar em vários treinos.
 model Exercise {
   id Int @id @default(autoincrement())
   name String @db.VarChar(255)
@@ -49,7 +47,8 @@ model Exercise {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  workouts WorkoutExercise[]
+  workoutId Int
+  workout Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
 }
 
 // Faz a relação entre usuários e treinos, permitindo que um treino seja compartilhado entre vários usuários.
@@ -61,14 +60,4 @@ model UserWorkout {
   workout Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
 
   @@id([userId, workoutId])
-}
-
-// Armazena os exercícios de um treino
-model WorkoutExercise {
-  id Int @id @default(autoincrement())
-  workoutId Int
-  exerciseId Int
-
-  workout Workout @relation(fields: [workoutId], references: [id], onDelete: Cascade)
-  exercise Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
 }

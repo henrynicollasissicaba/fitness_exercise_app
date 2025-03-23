@@ -37,7 +37,6 @@ export default function LoginPage(){
 
         } catch (err: any) {
             toast.error(handleError(err.errors[0].longMessage))
-            // toast.error(err.errors[0].longMessage)
 
         } finally {
             setIsLoading(false)
@@ -59,7 +58,6 @@ export default function LoginPage(){
                             name="username" 
                             id="username" 
                             placeholder="Nome de usuário"
-                            autoComplete="off"
                             onChange={(e) => setUsername(e.target.value)}
                             value={username}
                         />
@@ -71,7 +69,6 @@ export default function LoginPage(){
                             name="password" 
                             id="password" 
                             placeholder="Senha"
-                            autoComplete="off"
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                         />
