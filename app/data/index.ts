@@ -99,6 +99,9 @@ const pupilItems: SidebarMenuItem[] = [
     },
 ]
 
+const notes: string[] = [
+    ""
+]
 
 export { navItems, bodyParts, equipments, muscles, adminItems, teacherItems, pupilItems }
 
