@@ -2,7 +2,7 @@
 
 import { User } from "@/app/models/User"
 import DeleteButton from "./DeleteButton"
-import { deleteUserAction } from "../../actions/user"
+import { deleteUserAction } from "../../actions/user-actions"
 import { showCustomAlert } from "@/lib/sweetalert2"
 import { toast } from "sonner"
 

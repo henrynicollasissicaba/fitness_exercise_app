@@ -1,6 +1,6 @@
 "use client"
 
-import { createUserAction } from "@/app/actions/user";
+import { createUserAction } from "@/app/actions/user-actions";
 import FormGroup from "@/app/components/tags/FormGroup";
 import { Button } from "@/app/components/ui/Button";
 import { Input } from "@/app/components/ui/Input";

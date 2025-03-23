@@ -1,4 +1,4 @@
-import { getUsersAction } from "@/app/actions/user"
+import { getUsersAction } from "@/app/actions/user-actions"
 import Container from "@/app/components/tags/Container"
 import Section from "@/app/components/tags/Section"
 import { checkRole } from "@/app/utils/roles"
