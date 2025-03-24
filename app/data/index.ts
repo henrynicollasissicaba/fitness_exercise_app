@@ -1,4 +1,4 @@
-import { Home, Search, UserRoundPlus, CirclePlus, Check, Cable } from "lucide-react"
+import { Home, Search, UserRoundPlus, CirclePlus, Check, Cable, Users } from "lucide-react"
 
 interface NavItem {
     id: number
@@ -73,6 +73,11 @@ const teacherItems: SidebarMenuItem[] = [
         title: "Criar treino",
         url: "/teacher/create-workout",
         icon: CirclePlus
+    },
+    {
+        title: "Alunos cadastrados",
+        url: "/teacher/all-pupils",
+        icon: Users
     },
     {
         title: "Treinos criados",

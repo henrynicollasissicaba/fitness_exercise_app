@@ -5,12 +5,14 @@ import DeleteButton from "./DeleteButton"
 import { deleteUserAction } from "../../actions/user-actions"
 import { showCustomAlert } from "@/lib/sweetalert2"
 import { toast } from "sonner"
+import { twMerge } from "tailwind-merge"
 
 interface UsersListProps {
     users: User[]
+    className?: string
 }
 
-export default function UsersList({ users }: UsersListProps){
+export default function UsersList({ users, className }: UsersListProps){
     const handleDeleteUser = async (userId: string) => {
         const titleMessage = "Deseja excluir este usuário?"
         const result = await showCustomAlert(titleMessage)
@@ -29,11 +31,11 @@ export default function UsersList({ users }: UsersListProps){
     }
 
     return(
-        <div className="flex flex-col gap-4 border p-2 rounded-lg h-[23rem] overflow-y-auto">
+        <div className={twMerge("flex flex-col gap-4 border p-2 rounded-lg h-[23rem] overflow-y-auto", className)}>
             {users.map((user, index) => (
                 <div
                     key={index}
-                    className="bg-zinc-100 p-2"
+                    className="bg-zinc-100 p-2 rounded-lg"
                 >
                     <div className="flex flex-col gap-2">
                         <div>
