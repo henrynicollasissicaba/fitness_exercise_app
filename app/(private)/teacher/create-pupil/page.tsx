@@ -60,6 +60,9 @@ export default async function CreatePupilPage(){
                             </li>
                             <li>- Exemplo: <span className="font-bold">18392-mariana-mcr-ribeiro-aluno</span></li>
                         </ul>
+                        <p className="font-bold text-red-600 text-center mt-10">
+                            <span className="uppercase">importante!!!</span> Não é possível recuperar a senha. Logo, deve-se anotar a senha antes de cadastrar o aluno!
+                        </p>
                     </div>
                 </div>
             </Container>

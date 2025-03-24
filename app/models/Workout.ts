@@ -28,7 +28,7 @@ export const createWorkout = async (name: string, exercises: WorkoutExercises[])
     })
 }
 
-export const getWorkouts = async () => {
+export const getWorkoutsExercises = async () => {
     const workouts = await prisma.workout.findMany({
         include: {
             exercises: true
@@ -37,10 +37,25 @@ export const getWorkouts = async () => {
     return workouts
 }
 
+export const getWorkouts = async () => {
+    const workouts = await prisma.workout.findMany()
+    return workouts
+}
+
 export const deleteWorkout = async (workoutId: number) => {
     await prisma.workout.delete({
         where: {
             id: workoutId
         }
+    })
+}
+
+export const assignWorkoutUser = async (workoutId: number, usersIds: string[]) => {
+    await prisma.userWorkout.createMany({
+        data: usersIds.map((userId) => ({
+            userId,
+            workoutId
+        })),
+        skipDuplicates: true
     })
 }

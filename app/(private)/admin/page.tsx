@@ -26,7 +26,7 @@ export default async function AdminPage(){
                                 <UsersList users={teachers} />
                             </div>
                         ) : (
-                            <p className="not-found-text">Nenhum professor cadastrador</p>
+                            <p className="not-found-text">Nenhum professor cadastrado</p>
                         )}
                     </div>
                     <div className="card">
@@ -36,7 +36,7 @@ export default async function AdminPage(){
                                 <UsersList users={pupils} />
                             </div>
                         ) : (
-                            <p className="not-found-text">Nenhum aluno cadastrador</p>
+                            <p className="not-found-text">Nenhum aluno cadastrado</p>
                         )}
                     </div>
                 </div>

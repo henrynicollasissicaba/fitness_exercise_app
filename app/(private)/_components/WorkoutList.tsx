@@ -24,7 +24,7 @@ export default function WorkoutList({ workoutList }: WorkoutListProps){
     }
 
     return(
-        <div className="grid gird-cols-1 md:grid-cols-2 gap-10 mt-10">
+        <div className="grid gird-cols-1 md:grid-cols-2 gap-5 mt-10">
             {workoutList.map((workout, index) => (
                 <div
                     key={index}

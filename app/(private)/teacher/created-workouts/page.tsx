@@ -1,4 +1,4 @@
-import { getWorkoutsAction } from "@/app/actions/workout-actions";
+import { getWorkoutsExercisesAction } from "@/app/actions/workout-actions";
 import Heading from "@/app/components/Heading";
 import Container from "@/app/components/tags/Container";
 import Section from "@/app/components/tags/Section";
@@ -12,7 +12,7 @@ export default async function CreatedWorkoutsPage(){
     const isTeacher = await checkRole('teacher')
     if(!isTeacher) redirect("/login")
     
-    const workouts = await getWorkoutsAction()
+    const workouts = await getWorkoutsExercisesAction()
     
     return(
         <Section>

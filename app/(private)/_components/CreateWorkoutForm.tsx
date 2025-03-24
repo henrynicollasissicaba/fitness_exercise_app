@@ -36,7 +36,7 @@ export default function CreateWorkoutForm(){
 
     const createWorkoutList = async () => {
         if(!workoutName.trim()){
-            await errorAlert()
+            await errorAlert("O nome do treino é obrigatório.")
             return
         }
 
