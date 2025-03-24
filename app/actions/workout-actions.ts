@@ -1,12 +1,32 @@
 "use server"
 
-import { createWorkout, WorkoutExercises } from "../models/Workout";
+import { revalidatePath } from "next/cache";
+import { createWorkout, deleteWorkout, getWorkouts, WorkoutExercises } from "../models/Workout";
 
 export const createWorkoutAction = async (name: string, exercises: WorkoutExercises[]) => {
     try {
-        const workout = await createWorkout(name, exercises)
-        console.log(workout)
+        await createWorkout(name, exercises)
         
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getWorkoutsAction = async () => {
+    try {
+        const workouts = await getWorkouts()
+        return workouts
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const deleteWorkoutAction = async (workoutId: number) => {
+    try {
+        await deleteWorkout(workoutId)
+        revalidatePath("/created-workouts")
+
     } catch (error) {
         console.log(error)
     }

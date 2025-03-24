@@ -2,7 +2,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { WorkoutExercises } from "@/app/models/Workout";
 import { ReactNode } from "react";
 
-interface ExercisesContentAccordion {
+interface ExercisesContentAccordionProps {
     index: number
     exercise: Partial<WorkoutExercises>
     children?: ReactNode
@@ -35,9 +35,9 @@ function ExercisesContent({ exerciseSetsXReps, exerciseNotes }: Partial<WorkoutE
     )
 }
 
-export default function ExercisesContentAccordion({ index, exercise, children }: ExercisesContentAccordion){
+export default function ExercisesContentAccordion({ index, exercise, children }: ExercisesContentAccordionProps){
     return(
-        <Accordion type="single" collapsible className="px-4">
+        <Accordion type="single" collapsible>
             <AccordionItem value={`item-${index}`}>
                 <AccordionTrigger>{exercise.exerciseName}</AccordionTrigger>
                 <AccordionContent>
