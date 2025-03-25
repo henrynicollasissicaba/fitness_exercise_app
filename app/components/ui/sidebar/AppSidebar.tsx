@@ -20,7 +20,7 @@ export async function AppSidebar() {
     const isPupil = await checkRole('pupil')
 
   return (
-    <Sidebar>
+    <Sidebar collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="text-sidebar-foreground text-xl mb-10">
@@ -34,7 +34,7 @@ export async function AppSidebar() {
                 <div>
                     {adminItems.map((item) => (
                         <SidebarMenuItem key={item.title} className="mb-2">
-                            <SidebarMenuButton asChild>
+                            <SidebarMenuButton asChild tooltip={item.title}>
                                 <Link href={item.url}>
                                   <item.icon />
                                   <span>{item.title}</span>
@@ -48,7 +48,7 @@ export async function AppSidebar() {
                 <div>
                     {teacherItems.map((item) => (
                         <SidebarMenuItem key={item.title} className="mb-2">
-                            <SidebarMenuButton asChild>
+                            <SidebarMenuButton asChild tooltip={item.title}>
                                 <Link href={item.url}>
                                   <item.icon />
                                   <span>{item.title}</span>
@@ -62,7 +62,7 @@ export async function AppSidebar() {
                 <div>
                     {pupilItems.map((item) => (
                         <SidebarMenuItem key={item.title} className="mb-2">
-                            <SidebarMenuButton asChild>
+                            <SidebarMenuButton asChild tooltip={item.title}>
                                 <Link href={item.url}>
                                   <item.icon />
                                   <span>{item.title}</span>
@@ -73,7 +73,7 @@ export async function AppSidebar() {
                 </div>
               )}
               <SidebarMenuItem>
-                <SidebarMenuButton asChild className="cursor-pointer mt-10">
+                <SidebarMenuButton asChild className="cursor-pointer mt-10" tooltip="Sair">
                   <SignOutButton>
                     <button>
                       <LogOut />

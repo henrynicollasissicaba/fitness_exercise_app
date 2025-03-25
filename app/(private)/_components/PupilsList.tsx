@@ -11,7 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { workoutUserSchema } from "@/app/schemas/workoutUserSchema"
 import { errorAlert } from "@/lib/sweetalert2"
-import { assignWorkoutUserAction } from "@/app/actions/workout-actions"
+import { assignWorkoutUserAction, unassignWorkoutUserAction } from "@/app/actions/workout-actions"
 import { toast } from "sonner"
 
 interface PupilsListProps {
@@ -19,11 +19,13 @@ interface PupilsListProps {
 }
 
 type AssignWorkoutUser = z.infer<typeof workoutUserSchema>
+type ActionType = "assign" | "unassign"
 
 export default function PupilsList({ pupils }: PupilsListProps){
     const { register, reset, handleSubmit, formState: { errors } } = useForm<AssignWorkoutUser>({ resolver: zodResolver(workoutUserSchema)})
     const [selectedPupils, setSelectedPupils] = useState<User[]>([])
     const [search, setSearch] = useState("")
+    const [actionType, setActionType] = useState<ActionType>("assign")
 
     const filteredPupils = search.length > 0 
         ? pupils.filter(pupil => pupil.fullName.toLocaleLowerCase().includes(search))
@@ -37,19 +39,26 @@ export default function PupilsList({ pupils }: PupilsListProps){
             )
     }
 
-    const handleAssignWorkoutUser = async (data: AssignWorkoutUser) => {
+    const handleAssociateWorkoutUser = async (data: AssignWorkoutUser) => {
         if(selectedPupils.length === 0){
             await errorAlert("Selecione pelo menos um aluno para atribuir ao treino.")
             return
         }
-        
+
         const workoutId = data.workoutId
         const usersIds = selectedPupils.map((pupil) => pupil.id)
 
-        toast.promise(assignWorkoutUserAction(workoutId, usersIds), {
-            loading: "Atribuindo treino ao(s) aluno(s)...",
-            success: "Treino atribuído com sucesso!"
-        })
+        if(actionType === "assign"){
+            toast.promise(assignWorkoutUserAction(workoutId, usersIds), {
+                loading: "Vinculando treino ao(s) aluno(s)...",
+                success: "Treino vinculado com sucesso!"
+            })
+        } else {
+            toast.promise(unassignWorkoutUserAction(workoutId, usersIds), {
+                loading: "Desvinculando treino do(s) aluno(s)...",
+                success: "Treino desvinculado com sucesso!"
+            })
+        }
 
         reset()
         setSelectedPupils([])
@@ -57,7 +66,7 @@ export default function PupilsList({ pupils }: PupilsListProps){
     }
 
     return(
-        <div className="h-[20rem] md:h-[30rem] overflow-y-auto border rounded-md">
+        <div className="max-h-[30rem] md:max-h-[40rem] h-fit overflow-y-auto border rounded-md">
             <div className="p-4">
                 <Input
                     type="text"
@@ -65,7 +74,7 @@ export default function PupilsList({ pupils }: PupilsListProps){
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Buscar aluno por nome"
                 />
-                <form onSubmit={handleSubmit(handleAssignWorkoutUser)} className="flex flex-col md:flex-row gap-2 mt-2 mb-5">
+                <form onSubmit={handleSubmit(handleAssociateWorkoutUser)} className="flex flex-col gap-4 mt-2 mb-5">
                     <div className="flex flex-col w-full">
                         <Input 
                             type="number"
@@ -75,9 +84,14 @@ export default function PupilsList({ pupils }: PupilsListProps){
                         />
                         {errors.workoutId && <p className="text-red-500">{errors.workoutId.message}</p>}
                     </div>
-                    <Button type="submit">
-                        Atribuir aluno(s)
-                    </Button>
+                    <div className="flex flex-col w-full md:flex-row md:justify-between gap-2">
+                        <Button type="submit" onClick={() => setActionType("assign")}>
+                            Vincular aluno(s)
+                        </Button>
+                        <Button type="submit" onClick={() => setActionType("unassign")}>
+                            Desvincular aluno(s)
+                        </Button>
+                    </div>
                 </form>
                 {search.length > 0 ? (
                     <CheckboxContainer>

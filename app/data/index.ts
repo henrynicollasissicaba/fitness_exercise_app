@@ -1,4 +1,4 @@
-import { Home, Search, UserRoundPlus, CirclePlus, Check, Cable, Users } from "lucide-react"
+import { Home, Search, UserRoundPlus, CirclePlus, Check, Cable, Users, Link2Off } from "lucide-react"
 
 interface NavItem {
     id: number
@@ -85,7 +85,7 @@ const teacherItems: SidebarMenuItem[] = [
         icon: Check
     },
     {
-        title: "Associar Treino-Aluno",
+        title: "Vinculação Treino-Aluno",
         url: "/teacher/associate-workout-user",
         icon: Cable
     },

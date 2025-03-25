@@ -1,7 +1,7 @@
 "use server"
 
 import { clerkClient } from "@clerk/nextjs/server"
-import { createUser, deleteUser, getUsers } from "../models/User"
+import { createUser, deleteUser, getPupilsCount, getTeacher, getUsers } from "../models/User"
 import { revalidatePath } from "next/cache"
 
 export const createUserAction = async (fullName: string, username: string, password: string, role: string) => {
@@ -43,4 +43,24 @@ export const deleteUserAction = async (userId: string) => {
 export const getUsersAction = async (role: string) => {
     const users = await getUsers(role)
     return users
+}
+
+export const getTeacherAction = async () => {
+    try {
+        const teacher = await getTeacher()
+        return teacher
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getPupilsCountAction = async () => {
+    try {
+        const count = await getPupilsCount()
+        return count
+
+    } catch (error) {
+        console.log(error)
+    }
 }
