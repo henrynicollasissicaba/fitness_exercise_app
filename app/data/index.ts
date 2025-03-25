@@ -98,7 +98,7 @@ const teacherItems: SidebarMenuItem[] = [
 
 const pupilItems: SidebarMenuItem[] = [
     {
-        title: "Meu treino",
+        title: "Meus treinos",
         url: "/pupil",
         icon: Home
     },

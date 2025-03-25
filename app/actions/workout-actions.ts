@@ -1,7 +1,7 @@
 "use server"
 
 import { revalidatePath } from "next/cache";
-import { assignWorkoutUser, createWorkout, deleteWorkout, getAllWorkoutsWithPupils, getWorkouts, getWorkoutsCount, getWorkoutsExercises, unassignWorkoutUser, WorkoutExercises } from "../models/Workout";
+import { assignWorkoutUser, createWorkout, deleteWorkout, getAllWorkoutsWithPupils, getPupilWorkouts, getWorkouts, getWorkoutsCount, getWorkoutsExercises, unassignWorkoutUser, WorkoutExercises } from "../models/Workout";
 
 export const createWorkoutAction = async (name: string, exercises: WorkoutExercises[]) => {
     try {
@@ -80,4 +80,9 @@ export const getAllWorkoutsWithPupilsAction = async () => {
     } catch (error) {
         console.log(error)
     }
+}
+
+export const getPupilWorkoutsAction = async () => {
+    const workouts = await getPupilWorkouts()
+    return workouts
 }

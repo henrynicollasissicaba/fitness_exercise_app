@@ -1,3 +1,4 @@
+import { auth } from "@clerk/nextjs/server"
 import { prisma } from "../database/prisma-client"
 import { Exercise } from "./Exercise"
 
@@ -108,4 +109,23 @@ export const getAllWorkoutsWithPupils = async () => {
         name: workout.name,
         users: workout.users.map((user) => user.user)
     }))
+}
+
+export const getPupilWorkouts = async () => {
+    const { userId } = await auth()
+    if(!userId) return
+
+    const workouts = await prisma.userWorkout.findMany({ 
+        where: { userId },
+        orderBy: { workout: { createdAt: "desc" } },
+        include: {
+            workout: {
+                include: {
+                    exercises: true
+                }
+            }
+        }
+    })
+
+    return workouts
 }
