@@ -31,11 +31,11 @@ export default function UsersList({ users, className }: UsersListProps){
     }
 
     return(
-        <div className={twMerge("flex flex-col gap-4 border p-2 rounded-lg h-[23rem] overflow-y-auto", className)}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {users.map((user, index) => (
                 <div
                     key={index}
-                    className="bg-zinc-100 p-2 rounded-lg"
+                    className="p-4 rounded-lg border shadow-md"
                 >
                     <div className="flex flex-col gap-2">
                         <div>
@@ -45,6 +45,10 @@ export default function UsersList({ users, className }: UsersListProps){
                         <div>
                             <span className="font-bold">Nome de usuário:</span>
                             <p className="text-zinc-700">{user.username}</p>
+                        </div>
+                        <div>
+                            <span className="font-bold">Aluno criado em:</span>
+                            <p className="text-zinc-700">{user.createdAt?.toLocaleDateString("pt-BR")}</p>
                         </div>
                     </div>
                     <DeleteButton onClick={() => handleDeleteUser(user.id)}>

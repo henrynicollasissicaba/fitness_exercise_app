@@ -15,6 +15,7 @@ import { toast } from "sonner";
 import { createWorkoutAction } from "@/app/actions/workout-actions";
 import { Trash } from "lucide-react";
 import ExercisesContentAccordion from "./ExercisesContent";
+import { Accordion } from "@/app/components/ui/Accordion";
   
 
 type Exercise = z.infer<typeof exerciseSchema>
@@ -102,23 +103,25 @@ export default function CreateWorkoutForm(){
             {exercises.length > 0 && (
                 <div className="w-full border rounded-lg mt-10 flex flex-col">
                     <div className="mb-5">
-                        {exercises.map((exercise, index) => (
-                            <ExercisesContentAccordion
-                                key={index}
-                                index={index}
-                                exercise={exercise}
-                            >
-                                <button 
-                                    onClick={() => handleDelete(index)}
-                                    className="bg-red-200 text-red-600 px-4 md:px-6 py-2 w-fit rounded-lg
-                                    border-red-600 border-2 hover:text-white hover:bg-red-600 transition-colors
-                                    cursor-pointer mt-4 ml-auto inline-flex items-center gap-2"
+                        <Accordion type="single" collapsible className="mx-4">
+                            {exercises.map((exercise, index) => (
+                                <ExercisesContentAccordion
+                                    key={index}
+                                    index={index}
+                                    exercise={exercise}
                                 >
-                                    <Trash className="size-4" />
-                                    <span>Excluir</span>
-                                </button>
-                            </ExercisesContentAccordion>
-                        ))}
+                                    <button 
+                                        onClick={() => handleDelete(index)}
+                                        className="bg-red-200 text-red-600 px-4 md:px-6 py-2 w-fit rounded-lg
+                                        border-red-600 border-2 hover:text-white hover:bg-red-600 transition-colors
+                                        cursor-pointer mt-4 ml-auto inline-flex items-center gap-2"
+                                    >
+                                        <Trash className="size-4" />
+                                        <span>Excluir</span>
+                                    </button>
+                                </ExercisesContentAccordion>
+                            ))}
+                        </Accordion>
                     </div>
                     <Button
                         className="mx-4 mb-4"

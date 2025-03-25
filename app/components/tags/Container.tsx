@@ -2,7 +2,7 @@ import { ComponentProps } from "./Section";
 
 export default function Container({ children, className }: ComponentProps){
     return(
-        <div className={`border p-4 rounded-lg mx-4 ${className}`}>
+        <div className={`mx-4 pb-10 ${className}`}>
             {children}
         </div>
     )

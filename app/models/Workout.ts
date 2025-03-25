@@ -85,9 +85,14 @@ export const getAllWorkoutsWithPupils = async () => {
                 include: {
                     user: {
                         select: {
-                            id: true, fullName: true, username: true
+                            id: true, fullName: true, username: true,
                         },
                     },
+                },
+                orderBy: {
+                    user: {
+                        fullName: "asc"
+                    }
                 }
             },
         },

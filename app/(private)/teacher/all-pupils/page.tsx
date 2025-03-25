@@ -18,7 +18,6 @@ export default async function AllPupilsPage(){
                 <Heading className="mb-10">Alunos cadastrados</Heading>
                 <UsersList 
                     users={pupils}
-                    className="h-auto"
                 />
             </Container>
         </Section>

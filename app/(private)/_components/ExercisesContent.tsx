@@ -37,19 +37,17 @@ function ExercisesContent({ exerciseSetsXReps, exerciseNotes }: Partial<WorkoutE
 
 export default function ExercisesContentAccordion({ index, exercise, children }: ExercisesContentAccordionProps){
     return(
-        <Accordion type="single" collapsible className="mx-4">
-            <AccordionItem value={`item-${index}`}>
-                <AccordionTrigger>{exercise.exerciseName}</AccordionTrigger>
-                <AccordionContent>
-                    <ExercisesContentWrapper>
-                        <ExercisesContent
-                            exerciseSetsXReps={exercise.exerciseSetsXReps}
-                            exerciseNotes={exercise.exerciseNotes}
-                        />
-                        {children}
-                    </ExercisesContentWrapper>
-                </AccordionContent>
-            </AccordionItem>
-        </Accordion>
+        <AccordionItem value={`item-${index}`}>
+            <AccordionTrigger>{exercise.exerciseName}</AccordionTrigger>
+            <AccordionContent>
+                <ExercisesContentWrapper>
+                    <ExercisesContent
+                        exerciseSetsXReps={exercise.exerciseSetsXReps}
+                        exerciseNotes={exercise.exerciseNotes}
+                    />
+                    {children}
+                </ExercisesContentWrapper>
+            </AccordionContent>
+        </AccordionItem>
     )
 }

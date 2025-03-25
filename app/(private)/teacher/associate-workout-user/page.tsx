@@ -19,9 +19,10 @@ export default async function AssociateWorkoutUserPage(){
             <Container>
                 <Heading>Vincular treino a um aluno</Heading>
                 <div className="mt-10">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="flex flex-col gap-6">
+                        <PupilsList pupils={pupils} />
                         <div 
-                            className="flex flex-col gap-4 max-w-lg w-full max-h-[30rem] md:max-h-fit h-full overflow-y-auto
+                            className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[40rem] md:max-h-fit h-full overflow-y-auto
                             md:overflow-y-visible"
                         >
                             {workouts?.map((workout) => (
@@ -55,7 +56,6 @@ export default async function AssociateWorkoutUserPage(){
                                 </div>
                             ))}
                         </div>
-                        <PupilsList pupils={pupils} />
                     </div>
                 </div>
             </Container>
