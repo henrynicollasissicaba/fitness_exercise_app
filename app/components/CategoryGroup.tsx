@@ -7,8 +7,8 @@ const CategoryGroup = ({ heading, headingNumber, items }: {
 }) => {
   return (
     <div className="flex flex-col gap-6 z-10 w-full md:w-max">
-        <h2 className="text-2xl font-bold text-blue-800 px-4 py-2 bg-blue-100
-        rounded-md w-full mt-10 md:mt-0"
+        <h2 className="text-2xl font-bold text-primary-800 px-4 py-2 bg-primary-100
+        rounded-md w-full mt-10 md:mt-0 border-2 border-primary-600"
         >
             {headingNumber}: {heading}
         </h2>

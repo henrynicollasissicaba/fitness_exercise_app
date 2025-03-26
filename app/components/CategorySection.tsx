@@ -19,12 +19,12 @@ const CategorySection = () => {
   ]
 
   return (
-    <section id="exercises" className="w-full max-w-6xl mx-auto p-3 relative">
+    <section id="exercises" className="w-full max-w-6xl mx-auto p-3 relative pt-20">
       <div className="flex flex-col items-center gap-2">
-        <h1 className="text-center text-3xl text-blue-700 font-bold z-10">
+        <h1 className="text-center text-3xl text-primary-700 font-bold z-10">
           Busque exercícios por categorias
         </h1>
-        <p className="bg-blue-600 text-white py-2 px-6 rounded-xl">
+        <p className="text-primary-950 text-lg text-center max-w-lg">
           Clique em um item de uma determinada categoria para realizar a busca de exercícios
         </p>
       </div>
@@ -40,7 +40,7 @@ const CategorySection = () => {
         width={1}
         height={1}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none
-        min-w-[950px] h-[750px] opacity-10 mt-8"
+        min-w-[950px] h-[750px] opacity-10 mt-24"
         />
     </section>
   )

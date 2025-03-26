@@ -4,7 +4,7 @@ const Button = ({ className, onClick, children }: {
     onClick?: () => void
 }) => {
   return (
-    <button className={`bg-blue-700 hover:bg-blue-500 transition-colors text-white
+    <button className={`bg-primary-700 hover:bg-primary-600 transition-colors text-white cursor-pointer
     font-bold p-2 rounded ${className}`}
     onClick={onClick}>
         {children}

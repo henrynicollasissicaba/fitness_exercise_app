@@ -27,6 +27,7 @@ async function getExercise(id: string): Promise<Exercise> {
   try {
     const response = await fetch(url, options);
     return response.json();
+    
   } catch (error) {
     console.error("Error fetching exercise:", error);
     throw error;
@@ -41,8 +42,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     <section className="w-full max-w-6xl mx-auto p-4">
       <Link 
         href="/#results"
-        className="flex items-center gap-2 py-1 px-4 bg-blue-700 text-white rounded w-max 
-        hover:bg-blue-500 transition-colors mb-5"
+        className="flex items-center gap-2 py-1 px-4 bg-primary-700 text-white rounded w-max 
+        hover:bg-primary-600 transition-colors mb-5"
       >
         <img src="/arrow-back.svg" alt="arrow back" className="w-4 h-4" />
         Voltar para a página inicial
@@ -52,7 +53,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           <img
             src={exercise.gifUrl}
             alt="GIF do exercício"
-            className="h-[25rem] sm:h-[28rem] md:h-[30rem] border-2 border-y-blue-700 rounded
+            className="h-[25rem] sm:h-[28rem] md:h-[30rem] border-2 border-y-primary-700 rounded
             border-x-slate-200"
           />
           <div className="capitalize w-full min-[435px]:w-auto">

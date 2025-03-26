@@ -49,7 +49,7 @@ const SwiperExercises = () => {
         <SwiperSlide key={index}>
           <div 
           className="flex flex-col gap-5 p-2 capitalize h-[33rem] 
-          mt-4 border-2 border-y-blue-700 rounded
+          mt-4 border-2 border-y-primary-700 rounded
           border-x-slate-200 relative shadow-lg">
             <img
               src={exercise.gifUrl}
@@ -61,17 +61,17 @@ const SwiperExercises = () => {
                 {exercise.name}
               </h3>
               <div className="flex gap-2 items-center flex-wrap pb-2">
-                <p className="py-1 px-4 rounded-3xl bg-blue-700 text-white text-sm">
+                <p className="py-1 px-4 rounded-3xl bg-primary-700 text-white text-sm">
                   {exercise.bodyPart}
                 </p>
-                <p className="bg-blue-700 py-1 px-4 rounded-3xl text-white text-sm">
+                <p className="bg-primary-700 py-1 px-4 rounded-3xl text-white text-sm">
                   {exercise.target}
                 </p>
               </div>
             </div>
             <Link 
               href={`/exercise/${exercise.id}`} 
-              className="mt-auto text-center bg-blue-700 py-2 text-white rounded hover:bg-blue-500
+              className="mt-auto text-center bg-primary-700 py-2 text-white rounded hover:bg-primary-600
               transition-colors"
             >
               Mais informações

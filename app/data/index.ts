@@ -8,8 +8,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
     { id: 1, label: "Home", link: "#home" },
-    { id: 2, label: "Exercícios", link: "#exercises" },
-    { id: 3, label: "Entrar", link: "/login" }
+    { id: 2, label: "Exercícios", link: "#exercises" }
 ]
 
 const muscles: string[] = [
