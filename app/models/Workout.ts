@@ -30,6 +30,8 @@ export const createWorkout = async (name: string, exercises: WorkoutExercises[])
 }
 
 export const getWorkoutsExercises = async () => {
+    "use cache"
+
     const workouts = await prisma.workout.findMany({
         include: {
             exercises: true
@@ -38,6 +40,7 @@ export const getWorkoutsExercises = async () => {
             createdAt: "desc"
         }
     })
+
     return workouts
 }
 
@@ -75,11 +78,15 @@ export const unassignWorkoutUser = async (workoutId: number, usersIds: string[])
 }
 
 export const getWorkoutsCount = async () => {
+    "use cache"
+
     const count = await prisma.workout.count()
     return count
 }
 
 export const getAllWorkoutsWithPupils = async () => {
+    "use cache"
+
     const workouts = await prisma.workout.findMany({
         include: {
             users: {
@@ -112,6 +119,8 @@ export const getAllWorkoutsWithPupils = async () => {
 }
 
 export const getPupilWorkouts = async () => {
+    "use cache"
+
     const { userId } = await auth()
     if(!userId) return
 

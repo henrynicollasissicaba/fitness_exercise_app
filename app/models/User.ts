@@ -28,6 +28,8 @@ export const deleteUser = async (userId: string) => {
 }
 
 export const getUsers = async (role: string) => {
+    "use cache"
+    
     const users = await prisma.user.findMany({
         where: { 
             role 
@@ -41,6 +43,8 @@ export const getUsers = async (role: string) => {
 }
 
 export const getPupilsCount = async () => {
+    "use cache"
+
     const count = await prisma.user.count({
         where: { role: "pupil" }
     })
@@ -49,6 +53,8 @@ export const getPupilsCount = async () => {
 }
 
 export const getTeacher = async () => {
+    "use cache"
+
     const { userId } = await auth()
     if(!userId) return
 

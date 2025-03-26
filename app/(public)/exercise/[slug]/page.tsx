@@ -14,27 +14,28 @@ interface Exercise {
   secondaryMuscles: string[];
 }
 
-async function getExercise(id: string): Promise<Exercise> {
-  const url = `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`;
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": `${process.env.NEXT_PUBLIC_API_KEY}`,
-      "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-    },
-  };
-
-  try {
-    const response = await fetch(url, options);
-    return response.json();
-    
-  } catch (error) {
-    console.error("Error fetching exercise:", error);
-    throw error;
-  }
-}
-
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  async function getExercise(id: string): Promise<Exercise> {
+    const url = `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`;
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": `${process.env.NEXT_PUBLIC_API_KEY}`,
+        "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+      },
+    };
+  
+    try {
+      const response = await fetch(url, options);
+      return response.json();
+      
+    } catch (error) {
+      console.error("Error fetching exercise:", error);
+      throw error;
+      
+    }
+  }
+
   const slug = (await params).slug;
   const exercise = await getExercise(slug);
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useEffect, useRef, useState } from "react";
+import React, { createContext, useEffect, useRef, useState } from "react";
 import Loading from "../components/Loading";
 
 type Exercise = {
@@ -17,7 +17,7 @@ type Exercise = {
 type ExerciseContextProps = {
   exercises: Exercise[];
   fetchExercises: (exercise: string) => void;
-  resultsRef: React.RefObject<HTMLDivElement>;
+  resultsRef: React.RefObject<HTMLDivElement | null>;
 };
 
 export const ExercisesContext = createContext<ExerciseContextProps>(
@@ -68,8 +68,10 @@ export const ExercisesProvider = ({
       });
 
       setExercises(filteredExercises);
+
     } catch (error) {
       console.error(error);
+
     } finally {
       setIsLoading(false)
     }

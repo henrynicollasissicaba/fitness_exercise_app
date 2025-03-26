@@ -5,7 +5,7 @@ import CategoryGroup from "./CategoryGroup"
 const CategorySection = () => {
   const categories = [
     {
-      title: "Parte do Corpo",
+      title: "Partes do Corpo",
       items: bodyParts
     },
     {
