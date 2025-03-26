@@ -84,45 +84,51 @@ export default function PupilsList({ pupils }: PupilsListProps){
                         />
                         {errors.workoutId && <p className="text-red-500">{errors.workoutId.message}</p>}
                     </div>
-                    <div className="flex flex-col w-full md:flex-row md:justify-between gap-2">
+                    <div className="flex w-full md:flex-row justify-between md:justify-end gap-2">
                         <Button type="submit" onClick={() => setActionType("assign")}>
-                            Vincular aluno(s)
+                            Vincular
                         </Button>
                         <Button type="submit" onClick={() => setActionType("unassign")}>
-                            Desvincular aluno(s)
+                            Desvincular
                         </Button>
                     </div>
                 </form>
                 {search.length > 0 ? (
-                    <CheckboxContainer>
-                        {filteredPupils.map((pupil, index) => (
-                            <CheckboxWrapper key={index}>
-                                <Checkbox
-                                    id={`${pupil.id}`}
-                                    checked={selectedPupils.some((selectedUser) => selectedUser.id === pupil.id)}
-                                    onCheckedChange={() => toggleUser(pupil.id)}
-                                />
-                                <label htmlFor={`${pupil.id}`}>
-                                    {pupil.fullName}
-                                </label>
-                            </CheckboxWrapper>
-                        ))}
-                    </CheckboxContainer>
+                    <div>
+                        <p className="font-bold text-lg">Alunos:</p>
+                        <CheckboxContainer>
+                            {filteredPupils.map((pupil, index) => (
+                                <CheckboxWrapper key={index}>
+                                    <Checkbox
+                                        id={`${pupil.id}`}
+                                        checked={selectedPupils.some((selectedUser) => selectedUser.id === pupil.id)}
+                                        onCheckedChange={() => toggleUser(pupil.id)}
+                                    />
+                                    <label htmlFor={`${pupil.id}`}>
+                                        {pupil.fullName}
+                                    </label>
+                                </CheckboxWrapper>
+                            ))}
+                        </CheckboxContainer>
+                    </div>
                 ) : (
-                    <CheckboxContainer>
-                        {pupils.map((pupil, index) => (
-                            <CheckboxWrapper key={index}>
-                                <Checkbox
-                                    id={`${pupil.id}`}
-                                    checked={selectedPupils.some((selectedUser) => selectedUser.id === pupil.id)}
-                                    onCheckedChange={() => toggleUser(pupil.id)}
-                                />
-                                <label htmlFor={`${pupil.id}`}>
-                                    {pupil.fullName}
-                                </label>
-                            </CheckboxWrapper>
-                        ))}
-                    </CheckboxContainer>
+                    <div>
+                        <p className="font-bold text-lg">Alunos:</p>
+                        <CheckboxContainer>
+                            {pupils.map((pupil, index) => (
+                                <CheckboxWrapper key={index}>
+                                    <Checkbox
+                                        id={`${pupil.id}`}
+                                        checked={selectedPupils.some((selectedUser) => selectedUser.id === pupil.id)}
+                                        onCheckedChange={() => toggleUser(pupil.id)}
+                                    />
+                                    <label htmlFor={`${pupil.id}`}>
+                                        {pupil.fullName}
+                                    </label>
+                                </CheckboxWrapper>
+                            ))}
+                        </CheckboxContainer>
+                    </div>
                 )}
             </div>
         </div>

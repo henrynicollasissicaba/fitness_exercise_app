@@ -16,7 +16,7 @@ export default async function CreatedWorkoutsPage(){
     
     return(
         <Section>
-            <Container className="min-h-lvh mb-10">
+            <Container className="mb-10">
                 <Heading>Treinos criados</Heading>
                 {workouts && workouts.length > 0 ? (
                     <WorkoutList workoutList={workouts} />

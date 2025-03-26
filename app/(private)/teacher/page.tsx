@@ -39,7 +39,7 @@ export default async function TeacherPage(){
                         </div>
                         <div className="relative p-8 border shadow-md w-full max-w-sm rounded-lg">
                             <ScrollText size={50} />
-                            <p className="text-lg mt-5">Treinos cadastrados</p>
+                            <p className="text-lg mt-5">Treinos criados</p>
                             <span 
                                 className="absolute top-4 right-4 text-6xl font-bold opacity-60"
                             >

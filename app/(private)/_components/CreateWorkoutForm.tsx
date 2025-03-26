@@ -26,7 +26,13 @@ export default function CreateWorkoutForm(){
     const { register, handleSubmit, reset, formState: { errors } } = useForm<Exercise>({ resolver: zodResolver(exerciseSchema) })
 
     const addExercise = (data: Exercise) => {
-        setExercises([...exercises, data])
+        const validatedData = exerciseSchema.parse({
+            exerciseName: data.exerciseName,
+            exerciseSetsXReps: data.exerciseSetsXReps,
+            exerciseNotes: data.exerciseNotes
+        })
+
+        setExercises([...exercises, validatedData])
         reset()
     }
 
@@ -36,7 +42,7 @@ export default function CreateWorkoutForm(){
     }
 
     const createWorkoutList = async () => {
-        if(!workoutName.trim()){
+        if(!workoutName.trim() || workoutName.trim().length > 75){
             await errorAlert("O nome do treino é obrigatório.")
             return
         }
@@ -88,11 +94,12 @@ export default function CreateWorkoutForm(){
                     </FormGroup>
                 </div>
                 <FormGroup>
-                    <label htmlFor="notes">Observações do exercício</label>
+                    <label htmlFor="notes">Observações do exercício (opcional)</label>
                     <Textarea 
                         id="notes" 
                         placeholder="Ex.: Realizar 12 repetições com carga elevada e mais 12 repetições com carga leve." 
                         className="whitespace-pre-wrap"
+                        rows={4}
                         {...register("exerciseNotes")}
                     />
                 </FormGroup>

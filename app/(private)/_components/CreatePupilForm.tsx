@@ -12,6 +12,7 @@ export default function CreatePupilForm(){
     const [fullName, setFullName] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [visiblePassword, setVisiblePassword] = useState(false)
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -26,6 +27,7 @@ export default function CreatePupilForm(){
 
         } catch (error) {
             console.log(error)
+
         } finally {
             setIsLoading(false)
             setFullName("")
@@ -61,13 +63,20 @@ export default function CreatePupilForm(){
             <FormGroup className="flex flex-col gap-2">
                 <label htmlFor="password">Senha</label>
                 <Input 
-                    type="password"
+                    type={visiblePassword ? "text" : "password"}
                     placeholder="Digite a senha"
                     name="password"
                     id="password"
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
                 />
+                <button
+                    type="button"
+                    className="text-sm cursor-pointer block ml-auto border-b-2 border-black"
+                    onClick={() => setVisiblePassword(!visiblePassword)}
+                >
+                    {visiblePassword ? "Ocultar senha" : "Mostrar senha"}
+                </button>
             </FormGroup>
             <Button
                 type="submit"

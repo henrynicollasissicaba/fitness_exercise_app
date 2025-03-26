@@ -16,9 +16,13 @@ export default async function AllPupilsPage(){
         <Section>
             <Container>
                 <Heading className="mb-10">Alunos cadastrados</Heading>
-                <UsersList 
-                    users={pupils}
-                />
+                {pupils && pupils.length > 0 ? (
+                    <UsersList 
+                        users={pupils}
+                    />
+                ) : (
+                    <p className="not-found-text">Nenhum aluno cadastrado</p>
+                )}
             </Container>
         </Section>
     )
