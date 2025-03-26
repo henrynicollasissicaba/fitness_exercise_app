@@ -43,7 +43,7 @@ export default function CreateWorkoutForm(){
 
     const createWorkoutList = async () => {
         if(!workoutName.trim() || workoutName.trim().length > 75){
-            await errorAlert("O nome do treino é obrigatório.")
+            await errorAlert("Insira um nome de treino válido")
             return
         }
 
