@@ -4,7 +4,7 @@ import FormGroup from "@/app/components/tags/FormGroup";
 import { Button } from "@/app/components/ui/Button";
 import { Input } from "@/app/components/ui/Input";
 import { Textarea } from "@/app/components/ui/Textarea";
-import { exerciseSchema } from "@/app/schemas/exercise";
+import { exerciseSchema } from "@/app/schemas/exerciseSchema";
 import { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod"

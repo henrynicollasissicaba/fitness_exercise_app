@@ -4,21 +4,33 @@ import { createUserAction } from "@/app/actions/user-actions";
 import FormGroup from "@/app/components/tags/FormGroup";
 import { Button } from "@/app/components/ui/Button";
 import { Input } from "@/app/components/ui/Input";
+import { createUserSchema } from "@/app/schemas/userSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { z } from "zod";
+
+type CreateUser = z.infer<typeof createUserSchema>
 
 export default function CreatePupilForm(){
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({ 
+        resolver: zodResolver(createUserSchema)
+    })
     const [isLoading, setIsLoading] = useState(false)
-    const [fullName, setFullName] = useState("")
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
     const [visiblePassword, setVisiblePassword] = useState(false)
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-
+    const createPupil = async (data: CreateUser) => {
         try {
             setIsLoading(true)
+
+            const validatedData = createUserSchema.parse({
+                fullName: data.fullName,
+                username: data.username,
+                password: data.password
+            })
+
+            const { fullName, username, password } = validatedData
 
             toast.promise(createUserAction(fullName, username, password, "pupil"), {
                 loading: "Cadastrando aluno...",
@@ -30,45 +42,39 @@ export default function CreatePupilForm(){
 
         } finally {
             setIsLoading(false)
-            setFullName("")
-            setUsername("")
-            setPassword("")
+            reset()
         }
     }
 
     return(
-        <form onSubmit={handleSubmit} className="form-wrapper">
+        <form onSubmit={handleSubmit(createPupil)} className="form-wrapper">
             <FormGroup className="flex flex-col gap-2">
                 <label htmlFor="fullname">Nome completo</label>
                 <Input 
                     type="text"
                     placeholder="Digite o nome completo"
-                    name="fullname"
                     id="fullname"
-                    onChange={(e) => setFullName(e.target.value)}
-                    value={fullName}
+                    {...register("fullName")}
                 />
+                {errors.fullName && <span className="text-red-500">{errors.fullName.message}</span>}
             </FormGroup>
             <FormGroup className="flex flex-col gap-2">
                 <label htmlFor="username">Nome de usuário</label>
                 <Input 
                     type="text"
                     placeholder="Digite o nome de usuário"
-                    name="username"
                     id="username"
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username}
+                    {...register("username")}
                 />
+                {errors.username && <span className="text-red-500">{errors.username.message}</span>}
             </FormGroup>
             <FormGroup className="flex flex-col gap-2">
                 <label htmlFor="password">Senha</label>
                 <Input 
                     type={visiblePassword ? "text" : "password"}
                     placeholder="Digite a senha"
-                    name="password"
                     id="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
+                    {...register("password")}
                 />
                 <button
                     type="button"
@@ -77,6 +83,7 @@ export default function CreatePupilForm(){
                 >
                     {visiblePassword ? "Ocultar senha" : "Mostrar senha"}
                 </button>
+                {errors.password && <span className="text-red-500">{errors.password.message}</span>}
             </FormGroup>
             <Button
                 type="submit"
