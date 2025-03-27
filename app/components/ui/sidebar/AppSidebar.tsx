@@ -31,7 +31,7 @@ export async function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {isAdmin && (
-                <div>
+                <>
                     {adminItems.map((item) => (
                         <SidebarMenuItem key={item.title} className="mb-2">
                             <SidebarMenuButton asChild tooltip={item.title}>
@@ -42,10 +42,10 @@ export async function AppSidebar() {
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     ))}
-                </div>
+                </>
               )}
               {isTeacher && (
-                <div>
+                <>
                     {teacherItems.map((item) => (
                         <SidebarMenuItem key={item.title} className="mb-2">
                             <SidebarMenuButton asChild tooltip={item.title}>
@@ -56,10 +56,10 @@ export async function AppSidebar() {
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     ))}
-                </div>
+                </>
               )}
               {isPupil && (
-                <div>
+                <>
                     {pupilItems.map((item) => (
                         <SidebarMenuItem key={item.title} className="mb-2">
                             <SidebarMenuButton asChild tooltip={item.title}>
@@ -70,7 +70,7 @@ export async function AppSidebar() {
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     ))}
-                </div>
+                </>
               )}
               <SidebarMenuItem>
                 <SidebarMenuButton asChild className="cursor-pointer mt-10" tooltip="Sair">

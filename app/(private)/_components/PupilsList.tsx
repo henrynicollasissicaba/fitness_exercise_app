@@ -74,17 +74,21 @@ export default function PupilsList({ pupils }: PupilsListProps){
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Buscar aluno por nome"
                 />
-                <form onSubmit={handleSubmit(handleAssociateWorkoutUser)} className="flex flex-col gap-4 mt-2 mb-5">
+                <form 
+                    onSubmit={handleSubmit(handleAssociateWorkoutUser)} 
+                    className="flex flex-col md:flex-row gap-4 mt-2 mb-5"
+                >
                     <div className="flex flex-col w-full">
                         <Input 
                             type="number"
                             id="workoutId"
                             placeholder="Insira o ID do treino"
                             {...register("workoutId")}
+                            className="w-full"
                         />
                         {errors.workoutId && <p className="text-red-500">{errors.workoutId.message}</p>}
                     </div>
-                    <div className="flex w-full md:flex-row justify-between md:justify-end gap-2">
+                    <div className="flex w-full md:w-fit md:flex-row justify-between md:justify-end gap-2">
                         <Button type="submit" onClick={() => setActionType("assign")}>
                             Vincular
                         </Button>
@@ -94,8 +98,8 @@ export default function PupilsList({ pupils }: PupilsListProps){
                     </div>
                 </form>
                 {search.length > 0 ? (
-                    <div>
-                        <p className="font-bold text-lg">Alunos:</p>
+                    <>
+                        <p className="font-bold text-lg mt-10">Selecionar alunos:</p>
                         <CheckboxContainer>
                             {filteredPupils.map((pupil, index) => (
                                 <CheckboxWrapper key={index}>
@@ -110,10 +114,10 @@ export default function PupilsList({ pupils }: PupilsListProps){
                                 </CheckboxWrapper>
                             ))}
                         </CheckboxContainer>
-                    </div>
+                    </>
                 ) : (
-                    <div>
-                        <p className="font-bold text-lg">Alunos:</p>
+                    <>
+                        <p className="font-bold text-lg mt-10">Selecionar alunos:</p>
                         <CheckboxContainer>
                             {pupils.map((pupil, index) => (
                                 <CheckboxWrapper key={index}>
@@ -128,7 +132,7 @@ export default function PupilsList({ pupils }: PupilsListProps){
                                 </CheckboxWrapper>
                             ))}
                         </CheckboxContainer>
-                    </div>
+                    </>
                 )}
             </div>
         </div>

@@ -82,7 +82,7 @@ export const getAllWorkoutsWithPupilsAction = async () => {
     }
 }
 
-export const getPupilWorkoutsAction = async () => {
-    const workouts = await getPupilWorkouts()
+export const getPupilWorkoutsAction = async (userId: string) => {
+    const workouts = await getPupilWorkouts(userId)
     return workouts
 }
