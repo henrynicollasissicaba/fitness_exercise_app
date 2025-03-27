@@ -53,8 +53,6 @@ export const getPupilsCount = async () => {
 }
 
 export const getTeacher = async () => {
-    "use cache"
-
     const { userId } = await auth()
     if(!userId) return
 
