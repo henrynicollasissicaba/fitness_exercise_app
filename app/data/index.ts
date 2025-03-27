@@ -1,4 +1,4 @@
-import { Home, Search, UserRoundPlus, CirclePlus, Check, Cable, Users, Link2Off } from "lucide-react"
+import { Home, Search, UserRoundPlus, CirclePlus, Check, Cable, Users } from "lucide-react"
 
 interface NavItem {
     id: number

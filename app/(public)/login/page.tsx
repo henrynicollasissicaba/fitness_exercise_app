@@ -3,10 +3,10 @@
 import Loading from "@/app/components/Loading"
 import { Button } from "@/app/components/ui/Button"
 import { Input } from "@/app/components/ui/Input"
-import { handleError } from "@/app/utils/errors"
 import { useSignIn } from "@clerk/nextjs"
 import React, { useState } from "react"
 import { toast } from "sonner"
+import { isClerkAPIResponseError } from '@clerk/nextjs/errors'
 
 export default function LoginPage(){
     const { isLoaded, signIn, setActive } = useSignIn()
@@ -35,8 +35,10 @@ export default function LoginPage(){
                 toast.error("Credenciais inválidas")
             }
 
-        } catch (err: any) {
-            toast.error(handleError(err.errors[0].longMessage))
+        } catch (error) {
+            if (isClerkAPIResponseError(error)){
+                toast.error(error.errors[0].message)
+            }
 
         } finally {
             setIsLoading(false)
