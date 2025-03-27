@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 const InfoExerciseField = ({ imgUrl, label, exerciseProp }: {
     imgUrl: string
     label: string
@@ -5,10 +7,13 @@ const InfoExerciseField = ({ imgUrl, label, exerciseProp }: {
 }) => {
   return (
     <div className="flex items-center gap-1">
-        <img 
+        <Image 
           src={imgUrl}
           alt={label} 
           className="w-4 h-4"
+          unoptimized={true}
+          width={4}
+          height={4}
         />
         <div className="flex items-center justify-between w-full gap-4">
             <p className="">{label}:</p>

@@ -1,6 +1,7 @@
 import InfoExerciseField from "@/app/components/InfoExerciseField";
 import InstructionsInfo from "@/app/components/InstructionsInfo";
 import SecondaryMuscleInfo from "@/app/components/SecondaryMuscleInfo";
+import Image from "next/image";
 import Link from "next/link";
 
 interface Exercise {
@@ -46,16 +47,19 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         className="flex items-center gap-2 py-1 px-4 bg-primary-700 text-white rounded w-max 
         hover:bg-primary-600 transition-colors mb-5"
       >
-        <img src="/arrow-back.svg" alt="arrow back" className="w-4 h-4" />
+        <Image src="/arrow-back.svg" alt="arrow back" width={4} height={4} className="w-4 h-4" />
         Voltar para a página inicial
       </Link>
       <div className="flex flex-col gap-10">
         <div className="capitalize flex sm:justify-between flex-wrap gap-8">
-          <img
+          <Image
             src={exercise.gifUrl}
             alt="GIF do exercício"
             className="h-[25rem] sm:h-[28rem] md:h-[30rem] border-2 border-y-primary-700 rounded
             border-x-slate-200"
+            unoptimized={true}
+            width={450}
+            height={225}
           />
           <div className="capitalize w-full min-[435px]:w-auto">
             <h1 className="font-bold text-xl mb-5">{exercise.name}</h1>

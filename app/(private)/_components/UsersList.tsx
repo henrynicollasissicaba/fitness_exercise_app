@@ -5,14 +5,12 @@ import DeleteButton from "./DeleteButton"
 import { deleteUserAction } from "../../actions/user-actions"
 import { showCustomAlert } from "@/lib/sweetalert2"
 import { toast } from "sonner"
-import { twMerge } from "tailwind-merge"
 
 interface UsersListProps {
     users: User[]
-    className?: string
 }
 
-export default function UsersList({ users, className }: UsersListProps){
+export default function UsersList({ users }: UsersListProps){
     const handleDeleteUser = async (userId: string) => {
         const titleMessage = "Deseja excluir este usuário?"
         const result = await showCustomAlert(titleMessage)

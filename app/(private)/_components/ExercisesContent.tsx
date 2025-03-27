@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/components/ui/Accordion";
+import { AccordionContent, AccordionItem, AccordionTrigger } from "@/app/components/ui/Accordion";
 import { WorkoutExercises } from "@/app/models/Workout";
 import { ReactNode } from "react";
 
