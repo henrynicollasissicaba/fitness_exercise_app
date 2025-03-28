@@ -24,7 +24,7 @@ function ExercisesContent({ exerciseSetsXReps, exerciseNotes }: Partial<WorkoutE
                 <p className="text-zinc-700">{exerciseSetsXReps}</p>
             </div>
             <div>
-                <span className="font-bold text-zinc-900">Obersevações:</span>
+                <span className="font-bold text-zinc-900">Observações:</span>
                 {exerciseNotes ? (
                     <p className="text-zinc-800 whitespace-pre-wrap max-w-96">{exerciseNotes}</p>
                 ) : (
