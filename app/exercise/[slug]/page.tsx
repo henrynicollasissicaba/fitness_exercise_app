@@ -1,8 +1,8 @@
-import InfoExerciseField from "@/app/components/InfoExerciseField";
-import InstructionsInfo from "@/app/components/InstructionsInfo";
-import SecondaryMuscleInfo from "@/app/components/SecondaryMuscleInfo";
 import Image from "next/image";
 import Link from "next/link";
+import InfoExerciseField from "../../components/InfoExerciseField";
+import SecondaryMuscleInfo from "../../components/SecondaryMuscleInfo";
+import InstructionsInfo from "../../components/InstructionsInfo";
 
 interface Exercise {
   id: string;
@@ -15,7 +15,11 @@ interface Exercise {
   secondaryMuscles: string[];
 }
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   async function getExercise(id: string): Promise<Exercise> {
     const url = `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`;
     const options = {
@@ -25,15 +29,13 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
       },
     };
-  
+
     try {
       const response = await fetch(url, options);
       return response.json();
-      
     } catch (error) {
       console.error("Error fetching exercise:", error);
       throw error;
-      
     }
   }
 
@@ -42,12 +44,18 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   return (
     <section className="w-full max-w-6xl mx-auto p-4">
-      <Link 
+      <Link
         href="/#results"
         className="flex items-center gap-2 py-1 px-4 bg-primary-700 text-white rounded w-max 
         hover:bg-primary-600 transition-colors mb-5"
       >
-        <Image src="/arrow-back.svg" alt="arrow back" width={4} height={4} className="w-4 h-4" />
+        <Image
+          src="/arrow-back.svg"
+          alt="arrow back"
+          width={4}
+          height={4}
+          className="w-4 h-4"
+        />
         Voltar para a página inicial
       </Link>
       <div className="flex flex-col gap-10">
