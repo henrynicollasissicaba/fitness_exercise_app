@@ -1,6 +1,6 @@
 "use client";
 
-import { useExercises } from "../hooks/useExercises";
+import useExercises from "../hooks/useExercises";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Grid, Pagination } from "swiper/modules";
 
@@ -48,10 +48,11 @@ const SwiperExercises = () => {
     >
       {exercises.map((exercise, index) => (
         <SwiperSlide key={index}>
-          <div 
-          className="flex flex-col gap-5 p-2 capitalize h-[33rem] 
+          <div
+            className="flex flex-col gap-5 p-2 capitalize h-[33rem] 
           mt-4 border-2 border-y-primary-700 rounded
-          border-x-slate-200 relative shadow-lg">
+          border-x-slate-200 relative shadow-lg"
+          >
             <Image
               src={exercise.gifUrl}
               alt="GIF do exercício"
@@ -61,9 +62,7 @@ const SwiperExercises = () => {
               height={300}
             />
             <div className="flex flex-col-reverse">
-              <h3 className="font-bold text-lg text-black">
-                {exercise.name}
-              </h3>
+              <h3 className="font-bold text-lg text-black">{exercise.name}</h3>
               <div className="flex gap-2 items-center flex-wrap pb-2">
                 <p className="py-1 px-4 rounded-3xl bg-primary-700 text-white text-sm">
                   {exercise.bodyPart}
@@ -73,8 +72,8 @@ const SwiperExercises = () => {
                 </p>
               </div>
             </div>
-            <Link 
-              href={`/exercise/${exercise.id}`} 
+            <Link
+              href={`/exercise/${exercise.id}`}
               className="mt-auto text-center bg-primary-700 py-2 text-white rounded hover:bg-primary-600
               transition-colors"
             >

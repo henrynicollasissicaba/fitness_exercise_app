@@ -1,6 +1,6 @@
 "use client";
 
-import { useExercises } from "../hooks/useExercises";
+import useExercises from "../hooks/useExercises";
 import SwiperExercises from "./SwiperExercises";
 
 const SearchedExercises = () => {
