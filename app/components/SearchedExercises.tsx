@@ -1,7 +1,7 @@
 "use client";
 
 import useExercises from "../hooks/useExercises";
-import SwiperExercises from "./SwiperExercises";
+import ExercisesWrapper from "./ExercisesWrapper";
 
 const SearchedExercises = () => {
   const { exercises, resultsRef } = useExercises();
@@ -17,7 +17,7 @@ const SearchedExercises = () => {
           <h2 className="font-bold text-3xl text-center text-primary-700 mb-5">
             Resultado da busca:
           </h2>
-          <SwiperExercises />
+          <ExercisesWrapper />
         </div>
       )}
     </section>

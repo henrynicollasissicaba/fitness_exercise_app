@@ -6,12 +6,14 @@ import SearchedExercises from "./components/SearchedExercises";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden">
+    <>
       <Header />
-      <Hero />
-      <CategorySection />
-      <SearchedExercises />
-      <Footer />
-    </main>
+      <main className="overflow-hidden">
+        <Hero />
+        <CategorySection />
+        <SearchedExercises />
+        <Footer />
+      </main>
+    </>
   );
 }
