@@ -10,23 +10,24 @@ const navItems: NavItem[] = [
 ];
 
 const muscles: string[] = [
+  "Costas",
+  "Peito",
+  "Cardio",
+  "Antebraço",
+  "Cintura",
   "Abdutores",
   "Adutores",
   "Abdominais",
   "Tríceps",
   "Bíceps",
   "Deltóides",
-  "Antebraço",
   "Quadríceps",
   "Glúteos",
   "Isquiotibiais",
   "Panturrilha",
-  "Peitoral",
-  "Dorsais",
   "Superior das Costas",
   "Músculo Serrátil Anterior",
   "Trapézios",
-  "Sistema Cardiovascular",
 ];
 
 const equipments: string[] = [
@@ -48,16 +49,9 @@ const equipments: string[] = [
   "Rolo Abdominal",
 ];
 
-const bodyParts: string[] = [
-  "Costas",
-  "Peito",
-  "Cardio",
-  "Braços Superiores",
-  "Antebraço",
-  "Ombros",
-  "Cintura",
-  "Panturrilha",
-  "Coxas",
+const items = [
+  { id: 1, title: "Grupos Musculares", data: muscles },
+  { id: 2, title: "Equipamentos", data: equipments },
 ];
 
-export { navItems, bodyParts, equipments, muscles };
+export { navItems, items };
