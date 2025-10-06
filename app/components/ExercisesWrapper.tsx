@@ -1,45 +1,75 @@
 "use client";
 
-import useExercises from "../hooks/useExercises";
 import Link from "next/link";
+import { useExercises } from "../hooks/useExercises";
+import Image from "next/image";
+import ExerciseInformation from "./ExerciseInformation";
 
 const ExercisesWrapper = () => {
   const { exercises } = useExercises();
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[50rem] overflow-y-auto custom-scrollbar">
-      {exercises.map((exercise) => (
-        <div
-          className="flex flex-col gap-5 p-2 capitalize mt-4 border-2 border-y-primary-700 rounded border-x-slate-200 
-            relative shadow-lg w-[20rem] h-[28rem] mx-auto"
-          key={exercise.id}
-        >
-          <img
-            src={exercise.gifUrl}
-            alt="GIF do exercício"
-            className="h-[16rem] w-full border-2 rounded border-slate-200 block mx-auto"
-            loading="lazy"
-          />
-          <div className="flex flex-col-reverse">
-            <h3 className="font-bold text-lg text-black">{exercise.name}</h3>
-            <div className="flex gap-2 items-center flex-wrap pb-2">
-              <p className="py-1 px-4 rounded-3xl bg-primary-700 text-white text-sm">
-                {exercise.bodyPart}
-              </p>
-              <p className="bg-primary-700 py-1 px-4 rounded-3xl text-white text-sm">
-                {exercise.target}
-              </p>
-            </div>
-          </div>
-          <Link
-            href={`/exercise/${exercise.id}`}
-            className="mt-auto text-center bg-primary-700 py-2 text-white rounded hover:bg-primary-600
-              transition-colors"
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {exercises.map((exercise) => {
+        const inforItems = [
+          {
+            imgUrl: "/assets/body.svg",
+            label: "Músculo",
+            children: exercise.bodyPart,
+            classNameImage: "size-5",
+          },
+          {
+            imgUrl: "/assets/muscle.svg",
+            label: "Alvo",
+            children: exercise.target,
+            classNameImage: "size-4",
+          },
+          {
+            imgUrl: "/assets/equipment.svg",
+            label: "Equipamento",
+            children: exercise.equipment,
+            classNameImage: "size-4",
+          },
+        ];
+        return (
+          <div
+            className="flex flex-col gap-5 p-2 capitalize mt-4 border-2 border-y-primary-700 rounded border-x-slate-200 
+            relative shadow-lg mx-auto w-full bg-white overflow-hidden"
+            key={exercise.id}
           >
-            Mais informações
-          </Link>
-        </div>
-      ))}
+            <Image
+              src="/assets/body-muscle.svg"
+              alt="body muscle img"
+              width={10}
+              height={10}
+              className="absolute -top-6 -right-26 size-64 pointer-events-none opacity-5"
+            />
+            <div className="flex flex-col gap-4">
+              <h3 className="text-center font-bold text-lg md:text-xl">
+                {exercise.name}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {inforItems.map((item) => (
+                  <ExerciseInformation
+                    key={item.label}
+                    imgUrl={item.imgUrl}
+                    label={item.label}
+                    children={item.children}
+                    classNameImage={item.classNameImage}
+                  />
+                ))}
+              </div>
+            </div>
+            <Link
+              href={`/exercise/${exercise.id}`}
+              className="mt-auto text-center bg-primary-700 py-2 text-white rounded hover:bg-primary-600
+              transition-colors z-10"
+            >
+              Mais informações
+            </Link>
+          </div>
+        );
+      })}
     </div>
   );
 };

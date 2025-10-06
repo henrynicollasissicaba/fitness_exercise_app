@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 left-0 w-full bg-white z-50">
       <div className="px-2 flex justify-between md:justify-around items-center">
-        <Image src="/logo.svg" alt="logo" width={55} height={55} />
+        <Image src="/assets/logo.svg" alt="logo" width={55} height={55} />
         <nav className="flex items-center gap-3 text-primary-800 font-medium">
           {navItems.map(({ id, label, link }) => (
             <div key={id} className="group relative w-max text-lg">

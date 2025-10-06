@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ExercisesContext } from "../contexts/ExercisesContext";
+import { ExerciseContext } from "../contexts/ExerciseContext";
 
-export default function useExercises() {
-  return useContext(ExercisesContext);
-}
+export const useExercises = () => {
+  return useContext(ExerciseContext);
+};

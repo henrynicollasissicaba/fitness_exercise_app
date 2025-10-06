@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
-import { ExercisesProvider } from "./contexts/ExercisesContext";
+import { ExerciseProvider } from "./contexts/ExerciseContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,10 +23,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${poppins.className} antialiased bg-slate-50`}>
-        <ExercisesProvider>
+        <ExerciseProvider>
           <Toaster richColors />
           {children}
-        </ExercisesProvider>
+        </ExerciseProvider>
       </body>
     </html>
   );

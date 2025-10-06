@@ -8,19 +8,18 @@ const CategorySection = () => {
       className="w-full max-w-6xl mx-auto p-3 relative pt-20"
     >
       <div className="flex flex-col items-center gap-4">
-        <h1 className="text-center text-2xl md:text-3xl text-primary-700 font-bold z-10">
+        <h2 className="text-center text-2xl md:text-4xl text-primary-700 font-bold z-10">
           Busque exercícios com base no que deseja trabalhar
-        </h1>
-        <p className="text-primary-950 text-base md:text-xl text-center max-w-lg">
-          Selecione um grupo muscular e um equipamento para a busca de
-          exercícios
+        </h2>
+        <p className="text-primary-950 text-base md:text-2xl text-center max-w-lg">
+          Selecione um grupo muscular para a busca de exercícios
         </p>
       </div>
 
       <CategoryGroup />
 
       <Image
-        src="/background-img.svg"
+        src="/assets/background-img.svg"
         alt="background image"
         width={1}
         height={1}
