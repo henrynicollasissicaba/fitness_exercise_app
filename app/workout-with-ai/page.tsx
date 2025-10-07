@@ -56,16 +56,16 @@ export default function Page() {
           {isStreaming && <p className="text-gray-500">Pensando...</p>}
         </div>
 
-        <div className="flex mt-4 w-full max-w-3xl">
+        <div className="flex flex-col md:flex-row mt-4 w-full max-w-3xl gap-2 md:gap-0">
           <input
-            className="flex-1 border-2 border-primary-950 px-3 py-2 rounded-l focus:outline-none"
+            className="flex-1 border-2 border-primary-950 px-3 py-2 rounded md:rounded-none md:rounded-l focus:outline-none"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
             placeholder="Digite aqui"
           />
           <Button
-            className="rounded-none rounded-r"
+            className="rounded md:rounded-none md:rounded-r"
             onClick={handleSend}
             disabled={isStreaming || !input.trim()}
           >
@@ -74,10 +74,16 @@ export default function Page() {
         </div>
       </div>
       <div className="flex justify-center items-center gap-4 flex-wrap">
-        <Button onClick={clearMessages} className="w-fit">
+        <Button
+          onClick={clearMessages}
+          className="w-fit bg-secondary-400 hover:bg-secondary-300 transition-colors"
+        >
           Limpar
         </Button>
-        <Button onClick={copyToClipboard} className="w-fit">
+        <Button
+          onClick={copyToClipboard}
+          className="w-fit bg-secondary-400 hover:bg-secondary-300 transition-colors"
+        >
           Copiar
         </Button>
       </div>
