@@ -1,6 +1,6 @@
 "use client";
 
-import useExercises from "../hooks/useExercises";
+import { useExercises } from "@/app/hooks/useExercises";
 
 const CategoryItem = ({
   id,
