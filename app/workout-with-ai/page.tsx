@@ -62,6 +62,7 @@ export default function Page() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            placeholder="Digite aqui"
           />
           <Button
             className="rounded-none rounded-r"
