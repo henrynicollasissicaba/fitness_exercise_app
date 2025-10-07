@@ -13,6 +13,8 @@ export async function GET(req: Request) {
 
     return NextResponse.json(data);
   } catch (error) {
+    console.log(error);
+
     return NextResponse.json(
       { error: "Failed to fetch data from YouTube API" },
       { status: 500 }

@@ -100,10 +100,11 @@ export default function Page({
               key={index}
               imgUrl={item.imgUrl}
               label={item.label}
-              children={item.children}
               classNameImage={item.classNameImage}
               className="text-lg"
-            />
+            >
+              {item.children}
+            </ExerciseInformation>
           ))}
         </BorderedContainer>
         <BorderedContainer>

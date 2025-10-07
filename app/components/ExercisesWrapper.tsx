@@ -54,9 +54,10 @@ const ExercisesWrapper = () => {
                     key={item.label}
                     imgUrl={item.imgUrl}
                     label={item.label}
-                    children={item.children}
                     classNameImage={item.classNameImage}
-                  />
+                  >
+                    {item.children}
+                  </ExerciseInformation>
                 ))}
               </div>
             </div>

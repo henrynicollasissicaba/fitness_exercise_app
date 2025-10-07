@@ -3,9 +3,9 @@ import data from "@/app/database/db.json";
 
 export async function GET(
   _request: Request,
-  { params }: { params: { id: string } }
+  ctx: RouteContext<"/api/exercises/[id]">
 ) {
-  const { id } = params;
+  const { id } = await ctx.params;
 
   const result = data.exercises.find((exercise) => exercise.id === Number(id));
 
