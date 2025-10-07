@@ -5,7 +5,7 @@ export async function GET(req: Request) {
   const query = searchParams.get("q");
 
   const apiKey = process.env.YT_API_KEY;
-  const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&order=relevance&q=${query}&relevanceLanguage=pt&type=video&videoDuration=medium&key=${apiKey}`;
+  const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&order=relevance&q=${query}&relevanceLanguage=pt&type=video&key=${apiKey}`;
 
   try {
     const response = await fetch(url);

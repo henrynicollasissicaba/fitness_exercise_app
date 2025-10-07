@@ -1,5 +1,5 @@
 const Footer = () => {
-  const currentDate = new Date().getFullYear()
+  const currentDate = new Date().getFullYear();
 
   return (
     <footer className="mt-10 bg-primary-700 p-2">

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { muscles } from "../data";
 import { useExercises } from "../hooks/useExercises";
-import Button from "./Button";
+import Button from "./buttons/Button";
 
 const CategoryGroup = () => {
   const [selectedMuscle, setSelectedMuscle] = useState<string>("");

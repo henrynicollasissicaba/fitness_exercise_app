@@ -1,6 +1,6 @@
 import Image from "next/image";
-import MobileNav from "./MobileNav";
-import DesktopNav from "./DesktopNav";
+import MobileNav from "@/app/components/nav/MobileNav";
+import DesktopNav from "@/app/components/nav/DesktopNav";
 
 const Header = () => {
   return (

@@ -1,8 +1,8 @@
-import CategorySection from "./components/CategorySection";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import SearchedExercises from "./components/SearchedExercises";
+import CategorySection from "./components/sections/CategorySection";
+import Footer from "./components/sections/Footer";
+import Header from "./components/sections/Header";
+import Hero from "./components/sections/Hero";
+import SearchedExercises from "./components/sections/SearchedExercises";
 
 export default function Home() {
   return (

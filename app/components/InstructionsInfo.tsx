@@ -8,8 +8,10 @@ const InstructionsInfo = ({
   return (
     <p className="flex gap-2 py-2">
       <span
-        className="font-bold text-primary-950 rounded-full bg-primary-400 p-4 border-2 border-primary-950
-            flex justify-center items-center w-6 h-6 mr-1"
+        className={`font-bold text-primary-950 rounded-full p-4 border-2 border-black
+            flex justify-center items-center w-6 h-6 mr-1 ${
+              index % 2 === 0 ? "bg-primary-400" : "bg-secondary-300"
+            }`}
       >
         {index}
       </span>

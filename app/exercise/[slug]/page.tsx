@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import SecondaryMuscleInfo from "../../components/SecondaryMuscleInfo";
 import InstructionsInfo from "../../components/InstructionsInfo";
 import { useExercises } from "@/app/hooks/useExercises";
@@ -9,6 +7,8 @@ import { Suspense, use, useEffect, useState } from "react";
 import ExerciseInformation from "@/app/components/ExerciseInformation";
 import YoutubeVideos from "./_components/YoutubeVideos";
 import LoadingSkeleton from "./_components/LoadingSkeleton";
+import BorderedContainer from "@/app/components/BorderedContainer";
+import ArrowBackBtn from "@/app/components/ArrowBackBtn";
 
 export default function Page({
   params,
@@ -87,27 +87,14 @@ export default function Page({
 
   return (
     <section className="w-full max-w-6xl mx-auto p-4 overflow-hidden">
-      <Link
-        href="/#results"
-        className="flex items-center gap-2 py-1 px-4 bg-primary-700 text-white rounded w-max 
-        hover:bg-primary-600 transition-colors mb-5 ml-auto"
-      >
-        <Image
-          src="/assets/arrow-back.svg"
-          alt="arrow back"
-          width={4}
-          height={4}
-          className="w-4 h-4"
-        />
-        Voltar
-      </Link>
+      <ArrowBackBtn href="/#results" />
 
       <h1 className="text-3xl md:text-4xl font-bold ">
         {">>"} {exercise.name}
       </h1>
 
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        <div className="flex flex-col px-2 py-4 gap-2 border-2 border-primary-950 rounded shadow-sm">
+        <BorderedContainer className="flex flex-col gap-2">
           {infoItems.map((item, index) => (
             <ExerciseInformation
               key={index}
@@ -118,23 +105,27 @@ export default function Page({
               className="text-lg"
             />
           ))}
-        </div>
-        <div className="border-2 border-primary-950 px-2 py-4 rounded shadow-sm">
+        </BorderedContainer>
+        <BorderedContainer>
           <h2 className="font-bold text-xl text-center">
             {">>"} Músculos Secundários
           </h2>
           <div className="flex gap-2 flex-wrap mt-4 items-center justify-center">
-            {exercise.secondaryMuscles.map((muscle) => (
-              <SecondaryMuscleInfo key={muscle} secondaryMuscle={muscle} />
+            {exercise.secondaryMuscles.map((muscle, index) => (
+              <SecondaryMuscleInfo
+                key={muscle}
+                secondaryMuscle={muscle}
+                index={index}
+              />
             ))}
           </div>
-        </div>
-        <div className="border-2 border-primary-950 px-2 py-4 rounded md:col-span-2 lg:col-span-1 shadow-sm">
+        </BorderedContainer>
+        <BorderedContainer className="md:col-span-2 lg:col-span-1">
           <p className="text-lg">
             <span className="font-bold">Descrição:</span> {exercise.description}
           </p>
-        </div>
-        <div className="border-2 border-primary-950 px-2 py-4 rounded col-span-1 md:col-span-2 lg:col-span-3 shadow-sm">
+        </BorderedContainer>
+        <BorderedContainer className="col-span-1 md:col-span-2 lg:col-span-3">
           <h2 className="mb-6 text-2xl md:text-3xl font-bold">
             {">>"} Instruções:
           </h2>
@@ -145,7 +136,7 @@ export default function Page({
               instruction={instruction}
             />
           ))}
-        </div>
+        </BorderedContainer>
       </div>
       <div className="mt-10">
         <h2 className="text-2xl md:text-4xl font-bold mb-3">

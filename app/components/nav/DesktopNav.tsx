@@ -1,4 +1,4 @@
-import { navItems } from "../data";
+import { navItems } from "@/app/data/index";
 
 export default function DesktopNav() {
   return (

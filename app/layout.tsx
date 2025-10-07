@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "sonner";
 import { ExerciseProvider } from "./contexts/ExerciseContext";
+import { ChatMessageProvider } from "./contexts/ChatMessageContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,8 +24,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`${poppins.className} antialiased bg-slate-50`}>
         <ExerciseProvider>
-          <Toaster richColors />
-          {children}
+          <ChatMessageProvider>{children}</ChatMessageProvider>
         </ExerciseProvider>
       </body>
     </html>

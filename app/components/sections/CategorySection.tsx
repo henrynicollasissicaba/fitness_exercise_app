@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CategoryGroup from "./CategoryGroup";
+import CategoryGroup from "@/app/components/CategoryGroup";
 
 const CategorySection = () => {
   return (
@@ -24,7 +24,7 @@ const CategorySection = () => {
         width={1}
         height={1}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none
-        min-w-[950px] h-[750px] opacity-10 mt-24"
+        min-w-[950px] h-[750px] opacity-10 mt-24 -z-10"
       />
     </section>
   );

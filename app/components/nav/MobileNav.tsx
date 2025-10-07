@@ -1,9 +1,9 @@
 "use client";
 
-import { navItems } from "../data";
+import { navItems } from "@/app/data/index";
 import { useEffect, useState } from "react";
-import CloseIcon from "./CloseIcon";
-import MenuIcon from "./MenuIcon";
+import CloseIcon from "@/app/components/buttons/CloseIcon";
+import MenuIcon from "@/app/components/buttons/MenuIcon";
 import { usePathname } from "next/navigation";
 
 export default function MobileNav() {
@@ -35,7 +35,7 @@ export default function MobileNav() {
                                     hover:text-secondary-300 cursor-pointer outline-0 transition-colors font-medium"
                 >
                   <a href={item.link} className="p-1 transition-colors w-full">
-                    {item.label}
+                    {">"} {item.label}
                   </a>
                 </li>
               );

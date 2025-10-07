@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useExercises } from "../hooks/useExercises";
-import ExercisesWrapper from "./ExercisesWrapper";
+import { useExercises } from "@/app/hooks/useExercises";
+import ExercisesWrapper from "@/app/components/ExercisesWrapper";
 
 const SearchedExercises = () => {
   const { exercises, resultsRef } = useExercises();
@@ -23,7 +23,10 @@ const SearchedExercises = () => {
             </span>
           </h2>
           <ExercisesWrapper />
-          <a className="fixed bottom-12 right-12" href="#results">
+          <a
+            className="fixed bottom-7 md:bottom-12 right-7 md:right-12 rounded-full bg-secondary-300 p-4 z-50"
+            href="#results"
+          >
             <Image
               src="/assets/arrow-back.svg"
               alt="arrow"

@@ -5,8 +5,8 @@ export default function ChatMessage({ content, isUser }) {
   return (
     <div className={`flex ${isUser ? "justify-end" : "justify-start"} mb-4`}>
       <div
-        className={`max-w-3xl rounded-lg p-3 ${
-          isUser ? "bg-primary-700 text-white" : "bg-gray-100 text-gray-900"
+        className={`max-w-2xl rounded-lg p-3 ${
+          isUser ? "bg-primary-700 text-white" : "bg-secondary-50 text-gray-900"
         }`}
       >
         <ReactMarkdown
