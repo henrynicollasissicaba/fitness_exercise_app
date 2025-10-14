@@ -1,28 +1,13 @@
-<h3 align="center">Fitness Exercise APP | Versão 2.0.3 Concluído :white_check_mark:</h3>
-
----
-
-# Atualizações do Projeto: Fitness Exercise APP
-## Versão 2.0: Migração para NextJS, ReactJS e Tailwind CSS
-
-- O projeto foi migrado do HTML/CSS/JS puro para o framework NextJS, que fornece recursos poderosos para construção de aplicações React.
-- A estilização foi atualizada para usar o Tailwind CSS, uma biblioteca de classes utilitárias que facilita e agiliza o desenvolvimento de interfaces.
-- Algumas funcionalidades foram reescritas utilizando React e seus recursos, como componentes, hooks e gerenciamento de estado.
-- O projeto agora é mais rápido, escalável e fácil de manter.
+<h3 align="center">Fitness Exercise APP | Versão 3.0.0 Concluído :white_check_mark:</h3>
 
 ---
 
 ## Sobre o projeto :computer:
 
-Uma aplicação web desenvolvida com NextJS, ReactJS e Tailwind CSS, onde você tem acesso por mais de 1300 exercícios de diversos tipos, 
-fazendo uma busca por um banco de dados de exercícios pela Rapid API, utilizando o ExerciseDB.
-Há diversos tipos de buscas que podem ser realizadas, porém as que estão disponíveis no APP são:
-
-- [x] Parte do Corpo;
-- [x] Equipamentos e;
-- [x] Músculo.
-
-Sendo que, para cada exercício, há um GIF simulando a execução de determinado exercício. Haverá novas atualizações futuras.
+Uma aplicação web desenvolvida com NextJS, ReactJS e Tailwind CSS, onde você tem acesso por mais de 600 exercícios de diversos tipos, desde exercícios de academia
+até calistenia. Os exercícios são buscados de acordo com o grupo muscular que deseja se trabalhar, fornecendo as informações básicas até as mais completas, 
+junto com a integração de vídeos do YouTube de acordo com a busca de exercícios. O site conta, também, com uma Inteligência Artificial da API do Groq para fornecer
+treinos e dietas personalizadas de acordo com suas características e objetivos.
 
 ---
 
@@ -31,14 +16,15 @@ Sendo que, para cada exercício, há um GIF simulando a execução de determinad
 - [x] NextJS
 - [x] ReactJS
 - [x] Tailwind CSS
-- [x] SwiperJS
+- [x] Groq API
 
 ---
 
 ## Funcionalidades :wrench:
 
-- [x] Apenas clique em um item de uma determinada categoria e a pesquisa será feita de acordo do item o qual você clicou
-- [x] Cada exercício terá um link para acessar uma página que exibirá todas as informações do exercício 
+- [x] Apenas clique em um item de um determinado grupo muscular e a pesquisa será feita de acordo do item o qual você clicou
+- [x] Cada exercício terá um link para acessar uma página que exibirá todas as informações do exercício
+- [x] Página de criação de treino + dieta personalizadas com Inteligência Artificial 
 
 ---
 
